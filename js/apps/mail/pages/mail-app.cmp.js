@@ -2,19 +2,17 @@ import {mailService} from '../services/mail-service.js'
 import mailSideNav from '../cmps/mail-side-nav.cmp.js'
 import mailFilter from '../cmps/mail-filter.cmp.js'
 import mailList from '../cmps/mail-list.cmp.js'
-import { myRouter } from '../../../routes.js';
 
 export default {
     name: 'mailApp',
-    router: myRouter,
     template: `
         <section class="mail-page flex">
             <mail-side-nav />
             <div class="mail-main-container flex column">
                 <mail-filter @filtered="setFilter"/>
-                <mail-list :mails="mails" />
+                <router-view :mails="mails"></router-view>
+                <!-- <mail-list :mails="mails" /> -->
             </div>
-            <router-view></router-view>
         </section>
     `,
     data() {
