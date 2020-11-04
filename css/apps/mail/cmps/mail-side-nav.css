@@ -5,3 +5,22 @@
     width: fit-content;
     border-right: 1px solid black;
 }
+
+.btn-compose-mail {
+    border-radius: 20px;
+    width: 60%;
+    padding: 10px;
+}
+
+.mail-side-nav>*:not(:first-child) {
+    display: flex;
+    align-items: center;
+    padding-inline-end: 12px;
+    padding-inline-start: 26px;
+    height: 32px;
+    width: 240px;
+    border-radius: 0 16px 16px 0;
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
+    line-height: 20px;
+}
