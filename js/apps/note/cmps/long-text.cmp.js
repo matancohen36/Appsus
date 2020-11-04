@@ -1,5 +1,6 @@
 
 export default {
+    name: 'longText',
     props: ['txt'],
     template: `
         <span>{{shortTxt}}...</span>

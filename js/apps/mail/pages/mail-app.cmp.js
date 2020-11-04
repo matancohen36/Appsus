@@ -4,12 +4,13 @@ import mailFilter from '../cmps/mail-filter.cmp.js'
 import mailList from '../cmps/mail-list.cmp.js'
 
 export default {
+    name: 'mailApp',
     template: `
         <section class="mail-page flex">
             <mail-side-nav />
             <div class="mail-main-container flex column">
                 <mail-filter @filtered="setFilter"/>
-                <mail-list :mails="mailsToShow" />
+                <mail-list :mails="mails" />
             </div>
             <router-view></router-view>
         </section>
@@ -17,30 +18,34 @@ export default {
     data() {
         return {
             mails: null,
-            filterBy: 'all',
+            filterBy: { byName: '' , byStatus:'all'},
         }
     },
-    components: {
-        mailSideNav,
-        mailFilter,
-        mailList,
-
-    },methods:{
+    methods:{
         setFilter(filterBy) {
             this.filterBy = filterBy;
         },
     },
     computed: {
         // mailsToShow() {
-        //     if(!mails)
-        //     if (!this.filterBy) return this.mails
+        //     if (!this.filterBy || !this.mails) return;
         //     const name = this.filterBy.byName.toLowerCase();
-        //     const status = this.filterBy.byStatus
-        //     return this.mails.filter(mail => mail.from.toLowerCase().includes(name));
+        //     debugger
+        //     const status = this.filterBy.byStatus;
+        //     console.log(name, status)
+        //     return this.mails.filter(mail => {
+        //         mail.from.toLowerCase().includes(name)
+        //     });
         // }
     },
     created() {
         mailService.getMailList()
-        .then(mails => this.mails= mails)
-    }
+        .then(mails => this.mails = mails)
+    },
+    components: {
+        mailSideNav,
+        mailFilter,
+        mailList,
+
+    },
 };

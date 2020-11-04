@@ -1,5 +1,6 @@
 
 export default {
+    name: 'mailSideNav',
     template: `
         <section class="mail-side-nav flex column align-center">
             <button class="btn-compose-mail">+ Compose</button>
