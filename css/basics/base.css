@@ -5,8 +5,17 @@
 
 body {
     margin: 0;
+    font-family: cursive;
 }
 
 button {
     cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
 }

@@ -4,3 +4,7 @@
     margin-inline-end: 30px;
     background-color: #303841;
 }
+
+.app-header nav {
+    height: 100%;
+}
