@@ -1,6 +1,6 @@
 import utilService from '../services/utilService.js'
-const gEmails =[
-    {id:utilService.makeId(8),from:'inbar the bro',subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: [{isRead:false,starMarked:false,isDeleted:false}], sentAt : 1551133930594},
+const gMails =[
+    {id:utilService.makeId(8),from:'inbar the sis',subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: [{isRead:false,starMarked:false,isDeleted:false}], sentAt : 1551133930594},
     {id:utilService.makeId(8),from:'matan the bro',subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: [{isRead:false,starMarked:false,isDeleted:false}], sentAt : 1551133930594},
     {id:utilService.makeId(8),from:'Napthlie the Desroyer',subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: [{isRead:false,starMarked:false,isDeleted:false}], sentAt : 1551133930594},
     {id:utilService.makeId(8),from:'idan the famous ninja',subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: [{isRead:false,starMarked:false,isDeleted:false}], sentAt : 1551133930594},
@@ -12,7 +12,18 @@ const gEmails =[
 
 
 
-// function getById(id) {
-   
-//     return Promise.resolve()
-// }
+function getMailById(mailId) {
+    const mail = gMails.find(mail => mail.id === mailId);
+    return Promise.resolve(mail);  
+}
+
+function getMailList() {
+    const mailList = JSON.parse(JSON.stringify(gMails))
+    return Promise.resolve(mailList);  
+}
+
+
+export const MailService = {
+    getMailById,
+    getMailList
+}
