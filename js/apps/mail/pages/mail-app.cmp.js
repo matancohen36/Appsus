@@ -17,6 +17,7 @@ export default {
     data() {
         return {
             mails: null,
+            mailId: '',
             filterBy: { byName: '' , byStatus:'all'},
         }
     },
@@ -39,7 +40,10 @@ export default {
             });
             // console.log('again')
             // return this.mails
-        }
+        },
+        // mailId() {
+        //     return (this.mails) ? mailService.getMailById('jhasdf346SD') : '';
+        // }
     },
     created() {
         mailService.getMailList()

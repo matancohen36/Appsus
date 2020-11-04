@@ -13,5 +13,7 @@ export default {
         sentTime() {
             return new Date(this.mail.sentAt).toTimeString().substr(0, 8)
         }
+    },
+    methods: {
     }
 }

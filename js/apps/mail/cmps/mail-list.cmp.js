@@ -12,7 +12,7 @@ export default {
     methods: {
         onSelectmail(mailId) {
             //get id from router
-            this.$router.push(`/mail/${mailId}`)
+            // this.$router.push(`/mail/${mailId}`)
         },
         emitDeletemail(mailId) {
             this.$emit('deletemail', mailId)
