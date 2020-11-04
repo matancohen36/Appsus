@@ -4,7 +4,7 @@ export default {
     template: `
             <section class="mails-container">
                 <ul>
-                    <li v-for="currMail in mails" :key="currMail.id" :mail="currMail" >
+                    <li v-for="currMail in mails" :key="currMail.id" :mail="currMail" > {{currMail}}</li>
                 </ul>
             </section>`,
     methods: {
