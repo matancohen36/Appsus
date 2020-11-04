@@ -8,18 +8,22 @@ export default {
             <h3> Received From: {{mail.from}}</h3> 
             <h1> Received at: {{mail.sentAt}}</h1> 
             <p>{{mail.body}}</p>
+            <button @click="deleteMail(mail.id)">x</button>
         </section>
     `,
     data() {
         return {
-            mail:{sentAt:'',from:'',body:'',subject:''}
+            mail: { sentAt: '', from: '', body: '', subject: '' }
         }
     },
     computed: {
 
     },
     methods: {
-
+        deleteMail(mailId) {
+            mailService.deleteMailById(mailId)
+            this.$router.push("/mail")
+        }
     },
     components: {
     },
@@ -30,7 +34,7 @@ export default {
                 this.mail = mail
                 this.mail.sentAt = new Date(this.mail.sentAt).toTimeString().substr(0, 8)
             })
-            
+
 
     },
-    }
+}

@@ -14,8 +14,17 @@ const gMails = [
 
 function getMailById(mailId) {
     const wantedMail = gMails.find(mail => mail.id === mailId)
-    const mail =JSON.parse(JSON.stringify(wantedMail));
+    const mail = JSON.parse(JSON.stringify(wantedMail));
     return Promise.resolve(mail);
+}
+
+function deleteMailById(mailId) {
+    console.log('mailId:', mailId)
+    const idx = gMails.findIndex(mail => mail.id === mailId)
+    console.log('idx:', idx)
+    gMails.splice(idx, 1)
+    console.log('gMails:', gMails)
+    return Promise.resolve();
 }
 
 function getMailList() {
@@ -26,5 +35,6 @@ function getMailList() {
 
 export const mailService = {
     getMailById,
-    getMailList
+    getMailList,
+    deleteMailById
 }
