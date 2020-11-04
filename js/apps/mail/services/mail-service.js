@@ -1,4 +1,4 @@
-import { utilService } from '../../../services/util-service.js';
+import { utilService } from '../../../services/util-service.js'
 const gMails = [
     { id: utilService.makeId(8), from: 'inbar the sis', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
     { id: utilService.makeId(8), from: 'matan the bro', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
@@ -8,7 +8,7 @@ const gMails = [
     { id: utilService.makeId(8), from: 'mr.meeSix', subject: 'hello im mister meeSix', body: 'hi im meesix how can i help u?', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
     { id: utilService.makeId(8), from: 'yaron biton', subject: 'why i belive Vue is the best framework', body: 'come visit my course and find out!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
     { id: utilService.makeId(8), from: 'asaf marglit', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 }
-];
+]
 
 
 
@@ -18,8 +18,7 @@ function getMailById(mailId) {
 }
 
 function getMailList() {
-    const mailList = JSON.parse(JSON.stringify(gMails));
-    console.log('mailList:', mailList);
+    const mailList = JSON.parse(JSON.stringify(gMails))
     return Promise.resolve(mailList);
 }
 
@@ -27,4 +26,4 @@ function getMailList() {
 export const mailService = {
     getMailById,
     getMailList
-};
+}
