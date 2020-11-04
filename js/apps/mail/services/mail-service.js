@@ -12,7 +12,18 @@ const gEmails =[
 
 
 
-// function getById(id) {
-   
-//     return Promise.resolve()
-// }
+function getMailById(mailId) {
+    const mail = gMails.find(mail => mail.id === mailId);
+    return Promise.resolve(mail);  
+}
+
+function getMailList() {
+    const mailList = JSON.parse(JSON.stringify(gMails))
+    return Promise.resolve(mailList);  
+}
+
+
+export const MailService = {
+    getMailById,
+    getMailList
+}
