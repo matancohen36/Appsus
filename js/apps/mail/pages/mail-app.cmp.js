@@ -2,18 +2,19 @@ import {mailService} from '../services/mail-service.js'
 import mailSideNav from '../cmps/mail-side-nav.cmp.js'
 import mailFilter from '../cmps/mail-filter.cmp.js'
 import mailList from '../cmps/mail-list.cmp.js'
-import { myRouter } from '../../../routes.js';
 
 export default {
     name: 'mailApp',
-    router: myRouter,
     template: `
         <section class="mail-page flex">
             <mail-side-nav />
             <div class="mail-main-container flex column">
                 <mail-filter @filtered="setFilter"/>
-                <mail-list :mails="mailsToShow" />
-                {{mailsToShow}}
+                <router-link class="flex space-between" to="/mail/" exact>
+                <mail-list @selectedMail="mailId = $event" :mails="mails" />
+                </router-link>
+                <router-link class="flex space-between" :to="'/mail/' + mailId" exact></router-link>
+                <!-- {{mailsToShow}} -->
             </div>
             <router-view></router-view>
         </section>
@@ -21,6 +22,7 @@ export default {
     data() {
         return {
             mails: null,
+            mailId: '',
             filterBy: { byName: '' , byStatus:'all'},
         }
     },
@@ -43,7 +45,10 @@ export default {
             });
             // console.log('again')
             // return this.mails
-        }
+        },
+        // mailId() {
+        //     return (this.mails) ? mailService.getMailById('jhasdf346SD') : '';
+        // }
     },
     created() {
         mailService.getMailList()

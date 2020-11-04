@@ -7,12 +7,13 @@ export default {
     props: ['mails'],
     template: `
             <section class="mails-list">
-                <mail-preview v-for="currMail in mails" :key="currMail.id" :mail="currMail" />
+                <mail-preview v-for="currMail in mails" @selectedMail="onSelectmail" :key="currMail.id" :mail="currMail" />
             </section>`,
     methods: {
         onSelectmail(mailId) {
             //get id from router
-            this.$router.push(`/mail/${mailId}`)
+            // this.$router.push(`/mail/${mailId}`)
+            this.$emit('selectedMail', mailId)
         },
         emitDeletemail(mailId) {
             this.$emit('deletemail', mailId)
