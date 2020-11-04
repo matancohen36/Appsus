@@ -1,0 +1,10 @@
+/* BAICS */
+@import './basics/base.css';
+/* HELPERS */
+@import './basics/helpers.css';
+/* PAGES */
+@import './pages/home-page.css';
+/* CMPS */
+@import './cmps/app-header.css';
+
+@import './cmps/app-footer.css'
