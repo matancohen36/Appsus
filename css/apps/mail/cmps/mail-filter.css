@@ -1,3 +1,14 @@
 .mail-filter{
-    height:5vh
+    padding: 1.25rem 50px 1.25rem 0;
+}
+
+
+.email-search {
+    outline: unset;
+    border: unset;
+    background-color: #f1f3f4;
+    border-radius: 5px;
+    width: 25rem;
+    height: 50px;
+    padding: 1.25rem;
 }

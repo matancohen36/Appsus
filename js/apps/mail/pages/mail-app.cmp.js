@@ -8,15 +8,16 @@ export default {
         <section class="mail-page flex">
             <mail-side-nav />
             <div class="mail-main-container flex column">
-                <mail-filter />
-                <mail-list :mails="mails" />
+                <mail-filter @filtered="setFilter"/>
+                <mail-list :mails="mailsToShow" />
             </div>
             <router-view></router-view>
         </section>
     `,
     data() {
         return {
-            mails: null
+            mails: null,
+            filterBy: 'all',
         }
     },
     components: {
@@ -24,6 +25,19 @@ export default {
         mailFilter,
         mailList,
 
+    },methods:{
+        setFilter(filterBy) {
+            this.filterBy = filterBy;
+        },
+    },
+    computed: {
+        // mailsToShow() {
+        //     if(!mails)
+        //     if (!this.filterBy) return this.mails
+        //     const name = this.filterBy.byName.toLowerCase();
+        //     const status = this.filterBy.byStatus
+        //     return this.mails.filter(mail => mail.from.toLowerCase().includes(name));
+        // }
     },
     created() {
         mailService.getMailList()
