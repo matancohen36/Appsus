@@ -6,7 +6,7 @@ export default {
     `,
     data() {
         return {
-
+            mail:null
         }
     },
     computed: {
@@ -18,10 +18,10 @@ export default {
     components: {
     },
     created() {
-        const id = this.$route.params.mailId;
+        const id = this.$route.params.mailid;
         mailService.getMailById(id)
             .then(mail => {
-                this.mail = mail
+                console.log(mail)
             })
     }
 }

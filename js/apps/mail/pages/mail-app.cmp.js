@@ -10,13 +10,8 @@ export default {
             <mail-side-nav />
             <div class="mail-main-container flex column">
                 <mail-filter @filtered="setFilter"/>
-                <router-link class="flex space-between" to="/mail/" exact>
-                <mail-list @selectedMail="mailId = $event" :mails="mails" />
-                </router-link>
-                <router-link class="flex space-between" :to="'/mail/' + mailId" exact></router-link>
-                <!-- {{mailsToShow}} -->
+                <router-view :mails="mails"></router-view>
             </div>
-            <router-view></router-view>
         </section>
     `,
     data() {
