@@ -1,4 +1,5 @@
 export default {
+    name: 'mailPreview',
     props: ['mail'],
     template: `
         <section class="mail-preview">

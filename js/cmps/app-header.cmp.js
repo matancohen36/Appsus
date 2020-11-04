@@ -1,4 +1,5 @@
 export default {
+    name: 'appHeader',
     template: `
                 <header class="app-header">
                     <nav class="clean-list flex space-evenly align-center">
