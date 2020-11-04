@@ -1,15 +1,13 @@
 
 .mail-side-nav {
     padding: 10px 20px;
-    height: 100vh;
-    width: fit-content;
+    height: calc(100vh - 90px);
     border-right: 1px solid black;
 }
 
 .btn-compose-mail {
     border-radius: 20px;
-    width: 60%;
-    padding: 10px;
+    padding: 10px 30px;
 }
 
 .mail-side-nav>*:not(:first-child) {
