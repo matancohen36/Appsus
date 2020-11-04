@@ -31,13 +31,14 @@ export default {
         },
     },
     computed: {
-        // mailsToShow() {
-        //     if(!mails)
-        //     if (!this.filterBy) return this.mails
-        //     const name = this.filterBy.byName.toLowerCase();
-        //     const status = this.filterBy.byStatus
-        //     return this.mails.filter(mail => mail.from.toLowerCase().includes(name));
-        // }
+        mailsToShow() {
+            if (!this.filterBy) return this.mails
+            console.log('this.filterBy:', this.filterBy)
+            const name = this.filterBy.byName.toLowerCase();
+            console.log('name:', name)
+            
+            return this.mails.filter(mail => mail.from.toLowerCase().includes(name));
+        }
     },
     created() {
         mailService.getMailList()
