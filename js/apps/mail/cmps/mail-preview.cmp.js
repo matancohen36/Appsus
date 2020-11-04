@@ -2,12 +2,10 @@ export default {
     props: ['mail'],
     template: `
         <section class="mail-preview">
-            <router-link :to="'/mail/' + mail.id " exact>
-            <div class="mail-content">{{mail.from}} - {{mail.subject}}  -  {{mail.body}} </div>
-            <div class="mail-time">{{sentTime}} </div>
-        </router-link>
-
-            
+            <router-link class="flex space-between" :to="'/mail/' + mail.id " exact>
+                <div class="mail-content">{{mail.from}} - {{mail.subject}}  -  {{mail.body}} </div>
+                <div class="mail-time">{{sentTime}} </div>
+            </router-link>
         </section>
     `,
     computed: {

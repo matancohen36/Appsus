@@ -1,3 +1,17 @@
-mails-list{
-    
+.mail-main-container {
+    width: 100%;
+    /* margin: 20px; */
+}
+
+.mail-preview {
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.mail-preview:nth-child(even) {
+    background-color: rgba(222, 184, 135, 0.39);
+}
+
+.mail-preview:first-child {
+    border-top: 1px solid black;
 }

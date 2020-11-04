@@ -18,11 +18,10 @@
     height: 32px;
     width: 240px;
     border-radius: 0 16px 16px 0;
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     letter-spacing: 0.2px;
     line-height: 20px;
     color: black;
-    font-weight: bold;
 }
 
 i.fa {
