@@ -1,6 +1,6 @@
 .app-header {
-    min-height: 100vh;
+    height: 90px;
     color: white;
-    width: 250px;
     margin-inline-end: 30px;
+    background-color: #303841;
 }
