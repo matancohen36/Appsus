@@ -11,7 +11,6 @@ export default {
             <div class="mail-main-container flex column">
                 <mail-filter @filtered="setFilter"/>
                 <router-view :mails="mails"></router-view>
-                <!-- <mail-list :mails="mails" /> -->
             </div>
         </section>
     `,
@@ -27,16 +26,20 @@ export default {
         },
     },
     computed: {
-        // mailsToShow() {
-        //     if (!this.filterBy || !this.mails) return;
-        //     const name = this.filterBy.byName.toLowerCase();
-        //     debugger
-        //     const status = this.filterBy.byStatus;
-        //     console.log(name, status)
-        //     return this.mails.filter(mail => {
-        //         mail.from.toLowerCase().includes(name)
-        //     });
-        // }
+        mailsToShow() {
+            if (!this.filterBy || !this.mails) return this.mails;
+            const name = this.filterBy.byName.toLowerCase();
+            const isRead = (this.filterBy.byStatus === 'read') ? true : false;
+            return this.mails.filter(mail => {
+                mail.from.toLowerCase().includes(name) &&
+                (
+                    this.filterBy.byStatus === 'all' ||
+                    mail.status.isRead === isRead
+                )
+            });
+            // console.log('again')
+            // return this.mails
+        }
     },
     created() {
         mailService.getMailList()
