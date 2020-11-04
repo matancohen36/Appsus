@@ -1,12 +1,18 @@
 import { mailService } from '../services/mail-service.js';
 
 export default {
+    name: 'mailDetails',
     template: `
-       <h1> blala</h1>
+        <section class ="mail-details flex column">
+            <h2> Mail Subject : {{mail.subject}} </h2> 
+            <h3> Received From: {{mail.from}}</h3> 
+            <h1> Received at: {{mail.sentAt}}</h1> 
+            <p>{{mail.body}}</p>
+        </section>
     `,
     data() {
         return {
-            mail:null
+            mail:{sentAt:'',from:'',body:'',subject:''}
         }
     },
     computed: {
@@ -21,7 +27,10 @@ export default {
         const id = this.$route.params.mailid;
         mailService.getMailById(id)
             .then(mail => {
-                console.log(mail)
+                this.mail = mail
+                this.mail.sentAt = new Date(this.mail.sentAt).toTimeString().substr(0, 8)
             })
+            
+
+    },
     }
-}
