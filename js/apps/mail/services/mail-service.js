@@ -1,6 +1,6 @@
 import utilService from '../services/utilService.js'
 const gEmails =[
-    {id:utilService.makeId(8),from:'inbar the bro',subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: [{isRead:false,starMarked:false,isDeleted:false}], sentAt : 1551133930594},
+    {id:utilService.makeId(8),from:'inbar the sis',subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: [{isRead:false,starMarked:false,isDeleted:false}], sentAt : 1551133930594},
     {id:utilService.makeId(8),from:'matan the bro',subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: [{isRead:false,starMarked:false,isDeleted:false}], sentAt : 1551133930594},
     {id:utilService.makeId(8),from:'Napthlie the Desroyer',subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: [{isRead:false,starMarked:false,isDeleted:false}], sentAt : 1551133930594},
     {id:utilService.makeId(8),from:'idan the famous ninja',subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: [{isRead:false,starMarked:false,isDeleted:false}], sentAt : 1551133930594},
