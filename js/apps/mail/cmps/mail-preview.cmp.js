@@ -3,14 +3,16 @@ export default {
     template: `
         <section class="mail-preview">
             <router-link :to="'/mail/' + mail.id " exact>
-            {{mail.from}} - {{mail.subject}}  -  {{mail.body}} - {{sentTime}}
+            <div class="mail-content">{{mail.from}} - {{mail.subject}}  -  {{mail.body}} </div>
+            <div class="mail-time">{{sentTime}} </div>
         </router-link>
+
             
         </section>
     `,
     computed: {
-      sentTime(){
-        return new Date(this.mail.sentAt).toTimeString().substr(0, 8)
-      }
+        sentTime() {
+            return new Date(this.mail.sentAt).toTimeString().substr(0, 8)
+        }
     }
 }

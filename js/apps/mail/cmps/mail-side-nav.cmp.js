@@ -12,7 +12,7 @@ export default {
             folders: [
                 { name: 'Inbox', icon: 'fa-envelope-open' },
                 { name: 'Starred', icon: 'fa-star'},
-                { name: 'Sent', icon: 'fa-share' },
+                { name: 'Sent', icon: 'fa-paper-plane' },
                 { name: 'Drafts', icon: 'fa-file' },
                 { name: 'Deleted', icon: 'fa-trash'} 
             ],
