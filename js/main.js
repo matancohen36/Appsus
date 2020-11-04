@@ -1,23 +1,18 @@
 import { myRouter } from './routes.js';
-import { eventBus } from './services/event-bus-service.js';
 import appHeader from './cmps/app-header.cmp.js'
-import appFooter from './cmps/app-footer.cmp.js'
+import { eventBus } from './services/event-bus-service.js';
 
 const options = {
     el: '#app',
     router: myRouter,
     template: `
-        <section>
-            <app-header />
-            <main>
-                <router-view></router-view>
-            </main>
-            <app-footer />
+        <section class="">
+        <app-header />
+            <router-view></router-view>
         </section>
     `,
     components: {
-        appHeader,
-        appFooter
+        appHeader
     },
     created() {
     }

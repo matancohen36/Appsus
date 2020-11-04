@@ -1,17 +1,21 @@
+// import appHeader from '../cmps/app-header.cmp.js'
+import appFooter from '../cmps/app-footer.cmp.js'
+
 export default {
     template: `
-    <section @click="showRef">
-        <h1 ref="theTitle">Home Sweet Home</h1>
+    <section class="home-page flex column space-between">
+        <h1>Welcome to Appsus!</h1>
+        <app-footer />
     </section>
     `,
     methods: {
-        showRef() {
-            console.log(this.$refs, 'ze2');
-        }
     },
     mounted() {
     },
     created() {
     },
-
+    components: {
+        // appHeader,
+        appFooter
+    }
 }

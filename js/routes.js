@@ -18,7 +18,10 @@ const myRoutes = [
     },
     {
         path: '/mail',
-        component: mailApp
+        component: mailApp,
+        // children: {
+        //     path: ''
+        // }
     },
     // {
         // path: '/about',
