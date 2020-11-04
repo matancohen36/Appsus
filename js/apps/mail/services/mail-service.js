@@ -19,6 +19,7 @@ function getMailById(mailId) {
 
 function getMailList() {
     const mailList = JSON.parse(JSON.stringify(gMails))
+    console.log('mailList:', mailList)
     return Promise.resolve(mailList);
 }
 

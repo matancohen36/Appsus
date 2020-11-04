@@ -1,4 +1,5 @@
 @import './cmps/mail-side-nav.css';
+@import './cmps/mail-list.css';
 
 .mail-page {
     background-color: beige;

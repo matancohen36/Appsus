@@ -7,6 +7,7 @@ export default {
     template: `
         <section class="mail-page flex">
             <mail-side-nav />
+            <section class="mail-list flex">
             <mail-filter />
             <mail-list :mails="mails" />
             <router-view></router-view>

@@ -1,11 +1,13 @@
+import mailPreview from '../cmps/mail-preview.cmp.js';
+
+
+
 export default {
     name: 'mailList',
     props: ['mails'],
     template: `
-            <section class="mails-container">
-                <ul>
-                    <li v-for="currMail in mails" :key="currMail.id" :mail="currMail" > {{currMail}}</li>
-                </ul>
+            <section class="mails-list ">
+                    <mail-preview v-for="currMail in mails" :key="currMail.id" :mail="currMail" />
             </section>`,
     methods: {
         onSelectmail(mailId) {
@@ -13,7 +15,6 @@ export default {
             this.$router.push(`/mail/${mailId}`)
         },
         emitDeletemail(mailId) {
-            console.log('in list:', mailId);
             this.$emit('deletemail', mailId)
         }
     },
@@ -21,5 +22,6 @@ export default {
         console.log(this.mails);
     },
     components: {
+        mailPreview,
     }
 }
