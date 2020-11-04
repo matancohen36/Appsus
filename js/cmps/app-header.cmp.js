@@ -1,7 +1,7 @@
 export default {
     template: `
                 <header class="app-header">
-                    </div>
+                    <nav class="clean-list flex">
                         <li>
                             <router-link to="/" exact>Home</router-link>
                         </li>

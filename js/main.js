@@ -1,4 +1,5 @@
 import { myRouter } from './routes.js';
+import { eventBus } from './services/event-bus-service.js';
 import appHeader from './cmps/app-header.cmp.js'
 import appFooter from './cmps/app-footer.cmp.js'
 
