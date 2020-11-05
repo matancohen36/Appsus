@@ -102,7 +102,7 @@ function getNoteList() {
 export const noteService = {
     getNoteById,
     getNoteList,
-    connectGoogleApi,
+    // connectGoogleApi,
     // deleteMailById,
     // getEmptyMail,
     // getFoldersMap,
@@ -110,14 +110,14 @@ export const noteService = {
 };
 
 
-function connectGoogleApi() {
-    const API_KEY = 'AIzaSyC1gbyzyCipjJJGQLuBXBgAbi7zLR9PJak';
-    googleApi= `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`;
-    return new Promise((resolve, reject) => {
-        googleApi.onload = resolve;
-        googleApi.onerror = () => reject('Google script failed to load')
-    })
-}
+// function connectGoogleApi() {
+//     const API_KEY = 'AIzaSyC1gbyzyCipjJJGQLuBXBgAbi7zLR9PJak';
+//     googleApi= `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`;
+//     return new Promise((resolve, reject) => {
+//         googleApi.onload = resolve;
+//         googleApi.onerror = () => reject('Google script failed to load')
+//     })
+// }
 
 
 
