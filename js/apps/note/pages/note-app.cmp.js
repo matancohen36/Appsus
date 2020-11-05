@@ -8,7 +8,7 @@ export default {
     template: `
         <section class="note-page">
             <note-add />
-            <note-list />
+            <note-list :notes="notes" />
         </section>
     `,
     data() {

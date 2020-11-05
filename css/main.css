@@ -14,3 +14,8 @@
 /* APPS */
 @import './apps/mail/mail-main.css';
 @import './apps/note/note-main.css';
+
+.main-router {
+    height: calc(100vh - 90px);
+    background-color: beige;
+}
