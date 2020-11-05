@@ -1,10 +1,16 @@
 
 .todo-item {
-    
+
 }
 
 .todo-txt {
     border: none;
     background-color: inherit;
     display: inline-block;
+}
+
+.btn-remove-todo {
+    border: none;
+    background-color: transparent;
+    padding: 0;
 }
