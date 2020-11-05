@@ -1,4 +1,5 @@
 import { mailService } from '../services/mail-service.js';
+import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
     name: 'mailCompose',
@@ -16,19 +17,20 @@ export default {
     data() {
         return {
             mailToEdit: mailService.getEmptyMail()
-        }
+        };
     },
     computed: {
 
     },
     methods: {
         sendMail() {
-            this.mailToEdit.status.isSent = true
-            this.mailToEdit.sentAt = Date.now()
-            this.mailToEdit.folder = 'Sent'
-            mailService.saveMail(this.mailToEdit).then(
-                this.$router.push('/mail').catch(() => { })
-            )
+            this.mailToEdit.status.isSent = true;
+            this.mailToEdit.sentAt = Date.now();
+            this.mailToEdit.folder = 'Sent';
+            mailService.saveMail(this.mailToEdit).then(() => {
+                this.$router.push('/mail').catch(() => { });
+                eventBus.$emit('addMail');
+            });
         }
     },
     components: {
@@ -38,10 +40,10 @@ export default {
         if (id) {
             mailService.getMailById(id)
                 .then(mail => {
-                    this.mailToEdit = mail
-                })
+                    this.mailToEdit = mail;
+                });
         }
     },
-}
+};
 
 

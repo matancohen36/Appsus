@@ -26,9 +26,11 @@ export default {
     watch: {
         mails() {
             eventBus.$emit('mailUpdated');
+            console.log('mails updated');
         },
         mailsToShow() {
             eventBus.$emit('mailUpdated');
+            console.log('filter updated');
         }
     },
     methods: {
@@ -63,6 +65,12 @@ export default {
         mailService.getMailList()
             .then(mails => this.mails = mails);
         this.$router.push('/mail').catch(()=>{});
+
+        eventBus.$on('addMail', () => {
+            mailService.getMailList()
+                .then(mails => this.mails = mails);
+            this.$router.push('/mail').catch(()=>{});
+        })
 
         eventBus.$on('delete', (mailId) => {
             mailService.deleteMailById(mailId)
