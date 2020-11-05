@@ -32,3 +32,7 @@
 .justify-center {
     justify-content: center;
 }
+
+.line-through {
+    text-decoration: line-through;
+}

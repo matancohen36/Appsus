@@ -23,7 +23,7 @@ const gNotes = [
     {
         type: 'noteTodos',
         info: {
-            label: 'How wat it:',
+            label: 'How was it:',
             todos: [
                 { txt: 'Do that', doneAt: null },
                 { txt: 'Do this', doneAt: null }
