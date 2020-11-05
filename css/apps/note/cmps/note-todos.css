@@ -14,3 +14,11 @@
     background-color: transparent;
     padding: 0;
 }
+
+.btn-add-todo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    padding-left: 4px;
+    text-shadow: 0 0 2px black;
+}

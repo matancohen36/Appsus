@@ -1,5 +1,10 @@
 /* helpers */
 
+.btn {
+    border: none;
+    background-color: transparent;
+}
+
 .clean-list {
     list-style-type: none;
     padding: 0;

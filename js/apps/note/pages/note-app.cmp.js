@@ -1,4 +1,5 @@
 import { noteService } from '../services/note-service.js';
+import { todoService } from '../services/todo-service.js';
 import { eventBus } from '../../../services/event-bus-service.js';
 import noteAdd from '../cmps/note-add.cmp.js';
 import noteList from '../cmps/note-list.cmp.js';
@@ -27,10 +28,16 @@ export default {
             .then(notes => this.notes = notes);
 
         eventBus.$on('removeTodo', (ids) => {
-            noteService.removeTodo(ids);
+            todoService.removeTodo(ids);
             noteService.getNoteList()
                 .then(notes => this.notes = notes);
         });
+
+        eventBus.$on('addTodo', (noteId) => {
+            todoService.addTodo(noteId);
+            noteService.getNoteList()
+                .then(notes => this.notes = notes);
+        })
         
     },
     components: {
