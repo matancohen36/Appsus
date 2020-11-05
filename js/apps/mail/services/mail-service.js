@@ -35,7 +35,8 @@ function toggleStarred(mailId) {
 };
 
 function getEmptyMail() {
-    return { id: '', folder: 'drafts', to: '', from: '', subject: '', body: '', status: { isSent: false, starMarked: false, isRead: true }, sentAt: '' }
+    const emptyMail = { id: '', folder: 'drafts', to: '', from: '', subject: '', body: '', status: { isSent: false, starMarked: false, isRead: true }, sentAt: '' }
+    return Promise.resolve(emptyMail)
 }
 
 function getFoldersMap() {
