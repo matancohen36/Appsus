@@ -23,6 +23,11 @@ export default {
             filterBy: { byName: '', byStatus: 'all', byFolder: 'Inbox' },
         };
     },
+    watch: {
+        mailsToShow() {
+            eventBus.$emit('mailUpdated');
+        }
+    },
     methods: {
         setFilter(filterBy) {
             this.filterBy = filterBy;
