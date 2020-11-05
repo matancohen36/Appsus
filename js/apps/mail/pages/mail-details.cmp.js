@@ -1,3 +1,4 @@
+import { eventBus } from '../../../services/event-bus-service.js';
 import { mailService } from '../services/mail-service.js';
 
 export default {
@@ -21,8 +22,9 @@ export default {
     },
     methods: {
         deleteMail(mailId) {
-            mailService.deleteMailById(mailId)
-            this.$router.push("/mail")
+            // mailService.deleteMailById(mailId)
+            // .then(() => this.$router.push("/mail"))
+            eventBus.$emit('delete', mailId);
         }
     },
     components: {

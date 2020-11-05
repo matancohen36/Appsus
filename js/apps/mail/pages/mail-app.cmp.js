@@ -46,7 +46,13 @@ export default {
     created() {
         mailService.getMailList()
             .then(mails => this.mails = mails);
-        this.$router.push('/mail')
+        this.$router.push('/mail');
+
+        eventBus.$on('delete', (mailId) => {
+            mailService.deleteMailById(mailId)
+            .then(() => mailService.getMailList().then(mails => this.mails = mails));
+            this.$router.push('/mail')
+        });
     },
     components: {
         mailSideNav,

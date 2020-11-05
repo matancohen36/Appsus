@@ -19,11 +19,8 @@ function getMailById(mailId) {
 }
 
 function deleteMailById(mailId) {
-    console.log('mailId:', mailId)
     const idx = gMails.findIndex(mail => mail.id === mailId)
-    console.log('idx:', idx)
-    gMails.splice(idx, 1)
-    console.log('gMails:', gMails)
+    if (idx >= 0) gMails.splice(idx, 1)
     return Promise.resolve();
 }
 
@@ -42,5 +39,6 @@ function toggleStarred(mailId) {
 export const mailService = {
     getMailById,
     getMailList,
-    toggleStarred
+    toggleStarred,
+    deleteMailById
 };
