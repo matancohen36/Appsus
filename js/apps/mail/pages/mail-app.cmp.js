@@ -2,6 +2,8 @@ import { mailService } from '../services/mail-service.js';
 import mailSideNav from '../cmps/mail-side-nav.cmp.js';
 import mailFilter from '../cmps/mail-filter.cmp.js';
 import mailList from '../cmps/mail-list.cmp.js';
+import { eventBus } from '../../../services/event-bus-service.js';
+
 
 export default {
     name: 'mailApp',
@@ -33,7 +35,7 @@ export default {
             const isRead = (this.filterBy.byStatus === 'read') ? true : false;
             return this.mails.filter(mail => {
                 return (mail.from.toLowerCase().includes(name) ||
-                        mail.subject.toLowerCase().includes(name)) &&
+                    mail.subject.toLowerCase().includes(name)) &&
                     (
                         this.filterBy.byStatus === 'all' ||
                         mail.status.isRead === isRead
