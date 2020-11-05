@@ -1,5 +1,4 @@
 import { utilService } from '../../../services/util-service.js';
-
 const gNotes = [
     {
         type: 'noteTxt',
@@ -38,6 +37,16 @@ const gNotes = [
             txt: 'שלום בן טוב ושמן שלי '
         }
     },
+    {
+        type: 'noteAudio',
+        isPinned: true,
+        info: {
+            src: 'js/apps/note/assets/mp3/song.mp3',
+            txt: 'We will Rock You'
+        }
+    }
+
+   
 
 ];
 
