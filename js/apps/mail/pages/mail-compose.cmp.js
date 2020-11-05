@@ -5,9 +5,12 @@ export default {
     template: `
         <section class ="mail-details flex column">
             <h2> Mail Subject :  </h2> 
-            <h3> Received From: </h3> 
-            <h1> Received at: </h1> 
-            <p>{{}}</p>
+            <input type="text" placeholder="please enter mail subject" v-model="mailToEdit.subject" />
+            <h3> sending to: </h3> 
+            <input type="text" placeholder="please enter mail receiver" v-model="mailToEdit.to" />
+            <textarea v-model="mailToEdit.body" placeholder="please enter text for your mail"></textarea>
+            <p>{{mailToEdit}}</p>
+            <button @click="sendMail"> Send</button>
         </section>
     `,
     data() {
@@ -19,12 +22,18 @@ export default {
 
     },
     methods: {
-       
+        sendMail() {
+            this.mailToEdit.status.isSent = true
+            this.mailToEdit.sentAt = Date.now()
+            this.mailToEdit.folder = 'Sent'
+            mailService.saveMail(this.mailToEdit).then(
+                this.$router.push('/mail').catch(() => { })
+            )
+        }
     },
     components: {
     },
     created() {
-        console.log('compose')
         const id = this.$route.params.mailid;
         if (id) {
             mailService.getMailById(id)

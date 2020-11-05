@@ -36,7 +36,8 @@ function toggleStarred(mailId) {
 };
 
 function getEmptyMail() {
-    return { id: utilService.makeId(8), folder: 'drafts', to: '', subject: '', body: '', status: { isSent: false, starMarked: false }, sentAt: '' }}
+    return { id: '', folder: 'drafts', to: '', subject: '', body: '', status: { isSent: false, starMarked: false }, sentAt: '' }
+}
 
 function getFoldersMap() {
     var foldersMap = gMails.reduce((map, mail) => {
@@ -46,11 +47,23 @@ function getFoldersMap() {
     return Promise.resolve(foldersMap);
 }
 
+function saveMail(mail) {
+    if (mail.id) {
+        const mailIdx = gMails.findIndex(currMail => mail.id === currMail.id)
+        gMails.splice(mailIdx, 1, mail)
+    } else {
+        mail.id = utilService.makeId();
+        gMails.unshift(mail);
+    }
+    return Promise.resolve(mail)
+}
+
 export const mailService = {
     getMailById,
     getMailList,
     toggleStarred,
     deleteMailById,
     getEmptyMail,
-    getFoldersMap
+    getFoldersMap,
+    saveMail
 };
