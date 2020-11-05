@@ -1,9 +1,10 @@
 
 export default {
     name: 'noteTxt',
+    props: ['note'],
     template: `
         <section>
-            <h1>txt</h1>
+            <p>{{note.info.txt}}</p>
         </section>
     `,
     data() {

@@ -5,7 +5,7 @@ const gNotes = [
         type: 'noteTxt',
         isPinned: true,
         info: {
-            txt: 'Fullstack Me Baby!'
+            txt: 'Fullstack Me Baby!',
         }
     },
     {
@@ -23,13 +23,22 @@ const gNotes = [
     {
         type: 'noteTodos',
         info: {
-            label: 'How wat it:',
+            label: 'How was it:',
             todos: [
                 { txt: 'Do that', doneAt: null },
                 { txt: 'Do this', doneAt: null }
             ]
         }
-    }
+    },
+    {
+        type: 'noteVideo',
+        isPinned: true,
+        info: {
+            url: 'https://www.youtube.com/embed/qeF3Sx_IGvE',
+            txt: 'שלום בן טוב ושמן שלי '
+        }
+    },
+
 ];
 
 
