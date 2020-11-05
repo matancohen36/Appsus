@@ -44,6 +44,7 @@ export default {
     created() {
         mailService.getMailList()
             .then(mails => this.mails = mails);
+        this.$router.push('/mail')
     },
     components: {
         mailSideNav,

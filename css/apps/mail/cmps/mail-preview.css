@@ -1,0 +1,19 @@
+
+.star {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.star:not(.starred) {
+    opacity: 0.3;
+}
+
+.star:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.preview-link {
+    flex-grow: 1;
+    margin: auto 5px;
+}
