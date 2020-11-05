@@ -1,7 +1,7 @@
 import { mailService } from '../services/mail-service.js';
 
 export default {
-    name: 'mailDetails',
+    name: 'mailCompose',
     template: `
         <section class ="mail-details flex column">
             <h2> Mail Subject :  </h2> 
