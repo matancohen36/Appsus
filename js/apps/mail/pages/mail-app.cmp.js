@@ -20,7 +20,7 @@ export default {
         return {
             mails: null,
             mailId: '',
-            filterBy: { byName: '', byStatus: 'all' },
+            filterBy: { byName: '', byStatus: 'all', byFolder: 'Inbox' },
         };
     },
     methods: {
@@ -33,13 +33,16 @@ export default {
             if (!this.filterBy || !this.mails) return this.mails;
             const name = this.filterBy.byName.toLowerCase();
             const isRead = (this.filterBy.byStatus === 'read') ? true : false;
+            const folderName = this.filterBy.byFolder;
             return this.mails.filter(mail => {
-                return (mail.from.toLowerCase().includes(name) ||
+                return (
+                    mail.folder === folderName &&
+                    (mail.from.toLowerCase().includes(name) ||
                     mail.subject.toLowerCase().includes(name)) &&
                     (
                         this.filterBy.byStatus === 'all' ||
                         mail.status.isRead === isRead
-                    );
+                    ));
             });
         },
     },

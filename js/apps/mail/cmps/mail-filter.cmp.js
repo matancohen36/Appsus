@@ -1,3 +1,4 @@
+import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
     name: 'mailFilter',
@@ -15,13 +16,19 @@ export default {
     `,
     data() {
         return {
-            filterBy: { byName: '' , byStatus:'all'}
+            filterBy: { byName: '' , byStatus:'all', byFolder: 'Inbox'}
         }
     },
     methods: {
         emitFilter() {
             this.$emit('filtered', this.filterBy);
         }
+    },
+    created() {
+        eventBus.$on('byFolder', (folderName) => {
+            this.filterBy.byFolder = folderName;
+            this.emitFilter();
+        })
     }
 }
 
