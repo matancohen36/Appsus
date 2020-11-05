@@ -9,7 +9,7 @@ export default {
             <h3> {{fromOrToTxt}}: {{mail.to || mail.from}}</h3> 
             <h1> {{recievedOrSentTxt}} at: {{mail.sentAt}}</h1> 
             <p>{{mail.body}}</p>
-            <button @click="deleteMail(mail.id)">x</button>
+            <button @click="deleteMail(mail.id)">Delete Mail</button>
             <router-link v-show="mail.folder === 'Drafts'" :to="'/mail/compose/' + mail.id" >Edit</router-link>
         </section>
     `,
