@@ -1,11 +1,10 @@
 import { utilService } from '../../../services/util-service.js';
-
 const gNotes = [
     {
         type: 'noteTxt',
         isPinned: true,
         info: {
-            txt: 'Fullstack Me Baby!'
+            txt: 'Fullstack Me Baby!',
         }
     },
     {
@@ -29,7 +28,26 @@ const gNotes = [
                 { txt: 'Do this', doneAt: null }
             ]
         }
+    },
+    {
+        type: 'noteVideo',
+        isPinned: true,
+        info: {
+            url: 'https://www.youtube.com/embed/qeF3Sx_IGvE',
+            txt: 'שלום בן טוב ושמן שלי '
+        }
+    },
+    {
+        type: 'noteAudio',
+        isPinned: true,
+        info: {
+            src: 'js/apps/note/assets/mp3/song.mp3',
+            txt: 'We will Rock You'
+        }
     }
+
+   
+
 ];
 
 
