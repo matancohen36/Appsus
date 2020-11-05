@@ -26,7 +26,7 @@ const gNotes = [
             label: 'How wat it:',
             todos: [
                 { txt: 'Do that', doneAt: null },
-                { txt: 'Do this', doneAt: 187111111 }
+                { txt: 'Do this', doneAt: null }
             ]
         }
     }
