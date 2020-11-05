@@ -24,13 +24,8 @@ export default {
         };
     },
     watch: {
-        mails() {
-            eventBus.$emit('mailUpdated');
-            console.log('mails updated');
-        },
         mailsToShow() {
             eventBus.$emit('mailUpdated');
-            console.log('filter updated');
         }
     },
     methods: {
