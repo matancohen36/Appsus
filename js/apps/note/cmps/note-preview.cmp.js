@@ -10,15 +10,15 @@ export default {
     name: 'notePreview',
     props: ['note'],
     template: `
-        <section class="note-preview">
-            <article class="note">
-                <component :is="noteComponent"></component>
-            </article>
-        </section>
+        <!-- <article class="note flex column"> -->
+            <component :is="noteComponent" class="note flex column"></component>
+        <!-- </article> -->
     `,
     data() {
         return {
-
+            style: {
+                backgroundColor: '#00d'
+            }
         }
     },
     methods: {

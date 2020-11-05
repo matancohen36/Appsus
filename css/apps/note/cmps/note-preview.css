@@ -1,8 +1,8 @@
 
-article.note {
+.note {
     background-color: chartreuse;
     border-radius: 10px;
     margin: 10px;
     width: 300px;
-    /* align-items: center; */
+    align-items: center;
 }
