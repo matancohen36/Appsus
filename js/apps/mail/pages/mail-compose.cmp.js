@@ -25,7 +25,7 @@ export default {
         sendMail() {
             this.mailToEdit.sentAt = Date.now();
             this.mailToEdit.folder = 'Sent';
-            debugger;
+            
             mailService.saveMail(this.mailToEdit).then(() => {
                 this.$router.push('/mail').catch(() => { });
                 eventBus.$emit('addMail');

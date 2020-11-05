@@ -31,7 +31,7 @@ export default {
     methods: {
         setFilter(filterBy) {
             this.filterBy = filterBy;
-            this.$router.push('/mail').catch(()=>{});
+            this.$router.push('/mail').catch(() => { });
         },
         setFilterBy(folder) {
             this.filterBy.byFolder = folder;
@@ -46,9 +46,9 @@ export default {
             return this.mails.filter(mail => {
                 return (
                     (mail.folder === folderName ||
-                     (mail.status.starMarked && folderName === 'Starred')) &&
+                        (mail.status.starMarked && folderName === 'Starred')) &&
                     (mail.from.toLowerCase().includes(name) ||
-                    mail.subject.toLowerCase().includes(name)) &&
+                        mail.subject.toLowerCase().includes(name)) &&
                     (
                         this.filterBy.byStatus === 'all' ||
                         mail.status.isRead === isRead
@@ -59,18 +59,25 @@ export default {
     created() {
         mailService.getMailList()
             .then(mails => this.mails = mails);
-        this.$router.push('/mail').catch(()=>{});
+        this.$router.push('/mail').catch(() => { });
 
         eventBus.$on('addMail', () => {
             mailService.getMailList()
                 .then(mails => this.mails = mails);
-            this.$router.push('/mail').catch(()=>{});
-        })
+            this.$router.push('/mail').catch(() => { });
+        });
+
+        eventBus.$on('starred', () => {
+            mailService.getMailList()
+                .then(mails => {
+                    this.mails = mails;
+                });
+        });
 
         eventBus.$on('delete', (mailId) => {
             mailService.deleteMailById(mailId)
-            .then(() => mailService.getMailList().then(mails => this.mails = mails));
-            this.$router.push('/mail').catch(()=>{});
+                .then(() => mailService.getMailList().then(mails => this.mails = mails));
+            this.$router.push('/mail').catch(() => { });
         });
     },
     components: {

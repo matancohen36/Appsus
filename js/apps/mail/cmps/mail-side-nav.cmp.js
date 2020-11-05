@@ -27,14 +27,6 @@ export default {
         }
     },
     computed: {
-        // mailInFolder() {
-        //     return this.foldersMap[folder.name] || 0;
-        // },
-        // mailInFolder() {
-        //     mailService.getFoldersMap()
-        //         .then(map => this.foldersMap = map);
-        //     return this.foldersMap;
-        // }
     },
     created() {
         mailService.getFoldersMap()

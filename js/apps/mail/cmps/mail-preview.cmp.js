@@ -1,3 +1,5 @@
+import { eventBus } from '../../../services/event-bus-service.js';
+
 export default {
     name: 'mailPreview',
     props: ['mail'],
@@ -23,7 +25,7 @@ export default {
     },
     methods: {
         emitStarred() {
-            this.$emit('starred', this.mail.id);
+            eventBus.$emit('starred', this.mail.id);
             this.mail.status.starMarked = !this.mail.status.starMarked;
         }
     }
