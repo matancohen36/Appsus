@@ -34,11 +34,14 @@ function toggleStarred(mailId) {
     currMail.status.starMarked = !currMail.status.starMarked;
 };
 
-
+function getEmptyMail() {
+    return { id: utilService.makeId(8), folder: 'drafts', to: '', subject: '', body: '', status: { isSent: false, starMarked: false }, sentAt: '' }
+}
 
 export const mailService = {
     getMailById,
     getMailList,
     toggleStarred,
-    deleteMailById
+    deleteMailById,
+    getEmptyMail
 };
