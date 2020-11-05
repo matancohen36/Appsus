@@ -73,6 +73,13 @@ function removeTodo(ids) {
     if (todoIdx >= 0) currNote.info.todos.splice(todoIdx, 1);
 }
 
+function removeNote(noteId) {
+    const idx = gNotes.findIndex(note => note.id === noteId) 
+    if (idx >= 0) gNotes.splice(idx, 1)
+}
+
+
+
 
 // function toggleStarred(mailId) {
 //     const currMail = gMails.find(mail => mail.id === mailId);
@@ -107,7 +114,8 @@ function removeTodo(ids) {
 export const noteService = {
     getNoteById,
     getNoteList,
-    removeTodo
+    removeTodo,
+    removeNote
     // toggleStarred,
     // connectGoogleApi,
     // deleteMailById,

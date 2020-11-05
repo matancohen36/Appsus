@@ -31,7 +31,12 @@ export default {
             noteService.getNoteList()
                 .then(notes => this.notes = notes);
         });
-        
+        eventBus.$on('removeNote', (id) => {
+            noteService.removeNote(id);
+            noteService.getNoteList()
+                .then(notes => this.notes = notes);
+        });
+
     },
     components: {
         noteAdd,

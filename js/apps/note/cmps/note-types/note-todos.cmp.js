@@ -5,6 +5,7 @@ export default {
     props: ['note'],
     template: `
         <section class="note-todos">
+        <button class="btn-remove-note" @click="emitRemoveNote(note.id)">x</button>    
             <h1>{{note.info.label}}</h1>
             <div class="todo-container">
                 <div class="todo-item flex" v-for="todo in note.info.todos" :key="todo.id">
@@ -27,6 +28,9 @@ export default {
         },
         emitRemove(todoId) {
             eventBus.$emit('removeTodo', { noteId: this.note.id, todoId: todoId });
+        },
+        emitRemoveNote(noteId) {
+            eventBus.$emit('removeNote', noteId);
         }
     },
     computed: {
