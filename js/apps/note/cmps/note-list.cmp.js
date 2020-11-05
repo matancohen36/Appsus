@@ -1,10 +1,13 @@
+import notePreview from './note-preview.cmp.js';
+
 export default {
     name: 'noteList',
     props: ['notes'],
     template: `
-            <section class="notes-list">
-                <mail-preview v-for="currNote in notes" :key="currNote.id":note="currNote" />
-            </section>`,
+            <section class="notes-list flex column align-center">
+                <note-preview class="flex column" v-for="currNote in notes" :key="currNote.id" :note="currNote" />
+            </section>
+    `,
     methods: {
      
     },
@@ -12,6 +15,6 @@ export default {
         
     },
     components: {
-        
+        notePreview
     }
 }

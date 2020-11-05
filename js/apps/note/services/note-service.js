@@ -2,14 +2,14 @@ import { utilService } from '../../../services/util-service.js';
 
 const gNotes = [
     {
-        type: 'NoteText',
+        type: 'noteTxt',
         isPinned: true,
         info: {
             txt: 'Fullstack Me Baby!'
         }
     },
     {
-        type: 'NoteImg',
+        type: 'noteImg',
         isPinned: true,
         info: {
             info: {
@@ -22,7 +22,7 @@ const gNotes = [
         }
     },
     {
-        type: 'NoteTodos',
+        type: 'noteTodos',
         info: {
             label: 'How wat it:',
             todos: [

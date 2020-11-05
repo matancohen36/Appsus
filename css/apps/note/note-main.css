@@ -1,5 +1,6 @@
+@import './cmps/note-preview.css';
+@import './cmps/note-list.css';
+
 .note-page {
-    background-color: beige;
-    height: 100vh;
 
 }

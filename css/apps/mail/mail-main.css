@@ -3,7 +3,3 @@
 @import './cmps/mail-filter.css';
 @import './cmps/mail-preview.css';
 @import '../../pages/mail-details.css';
-
-.mail-page {
-    background-color: beige;
-}
