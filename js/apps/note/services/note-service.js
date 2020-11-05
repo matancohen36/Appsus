@@ -12,13 +12,12 @@ const gNotes = [
         type: 'noteImg',
         isPinned: true,
         info: {
-            info: {
-                url: 'http://some-img/me',
-                title: 'Me Playing Mi'
-            },
-            style: {
-                backgroundColor: '#00d'
-            }
+            url: '../../../../assets/favicon.png',
+            title: 'Me Playing Mi'
+        },
+
+        style: {
+            backgroundColor: '#00d'
         }
     },
     {
@@ -46,7 +45,7 @@ function getNoteList() {
 }
 
 // function deleteMailById(mailId) {
-    //     const idx = gMails.findIndex(mail => mail.id === mailId);
+//     const idx = gMails.findIndex(mail => mail.id === mailId);
 //     if (idx >= 0) gMails.splice(idx, 1);
 //     return Promise.resolve();
 // }
