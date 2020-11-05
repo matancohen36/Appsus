@@ -35,22 +35,22 @@ const gNotes = [
 
 
 
-// function getMailById(mailId) {
-//     const wantedMail = gMails.find(mail => mail.id === mailId);
-//     const mail = JSON.parse(JSON.stringify(wantedMail));
-//     return Promise.resolve(mail);
-// }
+function getNoteById(noteId) {
+    const wantedNote = gNotes.find(note => note.id === noteId);
+    const note = JSON.parse(JSON.stringify(wantedNote));
+    return Promise.resolve(note);
+}
+function getNoteList() {
+    const noteList = JSON.parse(JSON.stringify(gNotes));
+    return Promise.resolve(noteList);
+}
 
 // function deleteMailById(mailId) {
-//     const idx = gMails.findIndex(mail => mail.id === mailId);
+    //     const idx = gMails.findIndex(mail => mail.id === mailId);
 //     if (idx >= 0) gMails.splice(idx, 1);
 //     return Promise.resolve();
 // }
 
-// function getMailList() {
-//     const mailList = JSON.parse(JSON.stringify(gMails));
-//     return Promise.resolve(mailList);
-// }
 
 // function toggleStarred(mailId) {
 //     const currMail = gMails.find(mail => mail.id === mailId);
@@ -83,8 +83,8 @@ const gNotes = [
 // }
 
 export const noteService = {
-    // getMailById,
-    // getMailList,
+    getNoteById,
+    getNoteList,
     // toggleStarred,
     // deleteMailById,
     // getEmptyMail,

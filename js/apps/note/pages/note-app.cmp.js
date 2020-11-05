@@ -13,7 +13,7 @@ export default {
     `,
     data() {
         return {
-
+            notes: null
         }
     },
     methods: {
@@ -23,7 +23,9 @@ export default {
 
     },
     created() {
-
+        noteService.getNoteList()
+            .then(notes => this.notes = notes);
+        
     },
     components: {
         noteAdd,
