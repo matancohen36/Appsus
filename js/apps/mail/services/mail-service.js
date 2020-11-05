@@ -1,14 +1,19 @@
 import { utilService } from '../../../services/util-service.js';
-const gMails = [
-    { id: utilService.makeId(8), folder: 'Inbox', from: 'inbar the sis', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: true, isDeleted: false }, sentAt: 1551133930594 },
-    { id: utilService.makeId(8), folder: 'Inbox', from: 'matan the bro', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
-    { id: utilService.makeId(8), folder: 'Inbox', from: 'Napthlie the Desrtoyer', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
-    { id: utilService.makeId(8), folder: 'Inbox', from: 'idan the famous ninja', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
-    { id: utilService.makeId(8), folder: 'Inbox', from: 'Rick, dimension1', subject: 'i cant remmber which is the original bath', body: 'can u help me find out who is my actuall daughter?', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
-    { id: utilService.makeId(8), folder: 'Inbox', from: 'mr.meeSix', subject: 'hello im mister meeSix', body: 'hi im meesix how can i help u?', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
-    { id: utilService.makeId(8), folder: 'Drafts', from: 'yaron biton', subject: 'why i belive Vue is the best framework', body: 'come visit my course and find out!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
-    { id: utilService.makeId(8), folder: 'Inbox', from: 'assaf marglit', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 }
-];
+const STORAGE_KEY = 'mailsDB';
+var gMails;
+
+function getDefaultMails() {
+    return [
+        { id: utilService.makeId(8), folder: 'Inbox', from: 'inbar the sis', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: true, isDeleted: false }, sentAt: 1551133930594 },
+        { id: utilService.makeId(8), folder: 'Inbox', from: 'matan the bro', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
+        { id: utilService.makeId(8), folder: 'Inbox', from: 'Napthlie the Desrtoyer', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
+        { id: utilService.makeId(8), folder: 'Inbox', from: 'idan the famous ninja', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
+        { id: utilService.makeId(8), folder: 'Inbox', from: 'Rick, dimension1', subject: 'i cant remmber which is the original bath', body: 'can u help me find out who is my actuall daughter?', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
+        { id: utilService.makeId(8), folder: 'Inbox', from: 'mr.meeSix', subject: 'hello im mister meeSix', body: 'hi im meesix how can i help u?', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
+        { id: utilService.makeId(8), folder: 'Drafts', from: 'yaron biton', subject: 'why i belive Vue is the best framework', body: 'come visit my course and find out!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 },
+        { id: utilService.makeId(8), folder: 'Inbox', from: 'assaf marglit', subject: 'what does the fox say?', body: 'tinitnintinitnintin!', status: { isRead: false, starMarked: false, isDeleted: false }, sentAt: 1551133930594 }
+    ]
+}
 
 
 
@@ -21,13 +26,20 @@ function getMailById(mailId) {
 function deleteMailById(mailId) {
     const idx = gMails.findIndex(mail => mail.id === mailId)
     if (idx >= 0) gMails.splice(idx, 1)
+    saveMailsToStorage();
     return Promise.resolve();
 }
 
 function getMailList() {
-    const mailList = JSON.parse(JSON.stringify(gMails));
-    return Promise.resolve(mailList);
+    gMails = utilService.loadFromStorage(STORAGE_KEY)
+    if (!gMails || !gMails.length) {
+        gMails = getDefaultMails();
+        saveMailsToStorage();
+    }
+    return Promise.resolve(gMails)
 }
+
+
 
 function toggleStarred(mailId) {
     const currMail = gMails.find(mail => mail.id === mailId);
@@ -56,7 +68,7 @@ function saveMail(mail) {
         mail.id = utilService.makeId(8);
         gMails.unshift(mail);
     }
-    
+    saveMailsToStorage();
     return Promise.resolve(mail)
 }
 
@@ -67,5 +79,14 @@ export const mailService = {
     deleteMailById,
     getEmptyMail,
     getFoldersMap,
-    saveMail
+    saveMail,
+    
 };
+
+
+function saveMailsToStorage() {
+    utilService.storeToStorage(STORAGE_KEY, gMails)
+}
+
+
+
