@@ -1,9 +1,11 @@
+import { eventBus } from '../../../../services/event-bus-service.js';
 
 export default {
     name: 'noteAudio',
     props: ['note'],
     template: `
     <section>
+    <button class="btn-remove-note" @click="emitRemoveNote(note.id)">x</button>    
         <h1>{{note.info.txt}}</h1>
         <audio controls>
             <source :src="note.info.src" type="audio/mpeg">
@@ -20,7 +22,12 @@ export default {
                 txt: 'We will Rock You'
             }
         };
-    }
+    },
+    methods: {
+        emitRemoveNote(noteId) {
+            eventBus.$emit('removeNote', noteId);
+        }
+    },
 
 }
 

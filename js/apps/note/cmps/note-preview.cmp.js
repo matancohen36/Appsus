@@ -10,6 +10,7 @@ export default {
     name: 'notePreview',
     props: ['note'],
     template: `
+        
         <component :note="note" :is="noteComponent" class="note flex column"></component>
     `,
     data() {
