@@ -72,6 +72,13 @@ function updateNote(note) {
     if (noteIdx >= 0) gNotes.splice(noteIdx, 1, note);
 }
 
+function removeNote(noteId) {
+    const idx = gNotes.findIndex(note => note.id === noteId) 
+    if (idx >= 0) gNotes.splice(idx, 1)
+}
+
+
+
 
 
 // function saveMail(mail) {
@@ -89,7 +96,8 @@ function updateNote(note) {
 export const noteService = {
     getNoteById,
     getNoteList,
-    updateNote
+    updateNote,
+    removeNote
     // toggleStarred,
     // connectGoogleApi,
     // deleteMailById,
@@ -98,14 +106,15 @@ export const noteService = {
     // saveMail
 };
 
-function connectGoogleApi() {
-    const API_KEY = 'AIzaSyC1gbyzyCipjJJGQLuBXBgAbi7zLR9PJak';
-    googleApi= `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`;
-    return new Promise((resolve, reject) => {
-        googleApi.onload = resolve;
-        googleApi.onerror = () => reject('Google script failed to load')
-    })
-}
+
+// function connectGoogleApi() {
+//     const API_KEY = 'AIzaSyC1gbyzyCipjJJGQLuBXBgAbi7zLR9PJak';
+//     googleApi= `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`;
+//     return new Promise((resolve, reject) => {
+//         googleApi.onload = resolve;
+//         googleApi.onerror = () => reject('Google script failed to load')
+//     })
+// }
 
 
 
