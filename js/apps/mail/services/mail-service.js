@@ -26,7 +26,7 @@ function getMailById(mailId) {
 function deleteMailById(mailId) {
     const idx = gMails.findIndex(mail => mail.id === mailId)
     if (idx >= 0) gMails.splice(idx, 1)
-    saveMailsToStorage();
+    _saveMailsToStorage();
     return Promise.resolve();
 }
 
@@ -34,7 +34,7 @@ function getMailList() {
     gMails = utilService.loadFromStorage(STORAGE_KEY)
     if (!gMails || !gMails.length) {
         gMails = getDefaultMails();
-        saveMailsToStorage();
+        _saveMailsToStorage();
     }
     return Promise.resolve(gMails)
 }
@@ -47,7 +47,7 @@ function toggleStarred(mailId) {
 };
 
 function getEmptyMail() {
-    const emptyMail = { id: '', folder: 'drafts', to: '', from: '', subject: '', body: '', status: { isSent: false, starMarked: false, isRead: true }, sentAt: '' }
+    const emptyMail = { id: '', folder: 'drafts', to: '', from: '', subject: '', body: '', status: { isDeleted: false, starMarked: false, isRead: false }, sentAt: '' }
     return Promise.resolve(emptyMail)
 }
 
@@ -68,7 +68,7 @@ function saveMail(mail) {
         mail.id = utilService.makeId(8);
         gMails.unshift(mail);
     }
-    saveMailsToStorage();
+    _saveMailsToStorage();
     return Promise.resolve(mail)
 }
 
@@ -84,7 +84,7 @@ export const mailService = {
 };
 
 
-function saveMailsToStorage() {
+function _saveMailsToStorage() {
     utilService.storeToStorage(STORAGE_KEY, gMails)
 }
 
