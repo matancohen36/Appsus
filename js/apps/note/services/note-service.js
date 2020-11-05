@@ -109,8 +109,25 @@ export const noteService = {
     getNoteList,
     removeTodo
     // toggleStarred,
+    // connectGoogleApi,
     // deleteMailById,
     // getEmptyMail,
     // getFoldersMap,
     // saveMail
 };
+
+
+function connectGoogleApi() {
+    const API_KEY = 'AIzaSyC1gbyzyCipjJJGQLuBXBgAbi7zLR9PJak';
+    googleApi= `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`;
+    return new Promise((resolve, reject) => {
+        googleApi.onload = resolve;
+        googleApi.onerror = () => reject('Google script failed to load')
+    })
+}
+
+
+
+
+
+
