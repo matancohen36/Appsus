@@ -5,9 +5,18 @@
     border-right: 1px solid black;
 }
 
-.btn-compose-mail {
-    border-radius: 20px;
-    padding: 10px 30px;
+a.btn-compose-mail {
+    background: transparent;
+    outline: 0;
+    border: 0;  
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    padding: 0.75rem;
+    border: 3px solid #000000;
+    background-color: #ffffff;
+    outline: 0;
+    border-radius: 1.25rem;
 }
 
 .mail-side-nav>*:not(:first-child) {
