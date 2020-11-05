@@ -1,6 +1,7 @@
 import { utilService } from '../../../services/util-service.js';
 const gNotes = [
     {
+        id: utilService.makeId(),
         type: 'noteTxt',
         isPinned: true,
         info: {
@@ -8,6 +9,7 @@ const gNotes = [
         }
     },
     {
+        id: utilService.makeId(),
         type: 'noteImg',
         isPinned: true,
         info: {
@@ -20,16 +22,18 @@ const gNotes = [
         }
     },
     {
+        id: utilService.makeId(),
         type: 'noteTodos',
         info: {
             label: 'How was it:',
             todos: [
-                { txt: 'Do that', doneAt: null },
-                { txt: 'Do this', doneAt: null }
+                { id: utilService.makeId(), txt: 'Do that', doneAt: null },
+                { id: utilService.makeId(), txt: 'Do this', doneAt: null }
             ]
         }
     },
     {
+        id: utilService.makeId(),
         type: 'noteVideo',
         isPinned: true,
         info: {
@@ -38,6 +42,7 @@ const gNotes = [
         }
     },
     {
+        id: utilService.makeId(),
         type: 'noteAudio',
         isPinned: true,
         info: {
@@ -62,11 +67,11 @@ function getNoteList() {
     return Promise.resolve(noteList);
 }
 
-// function deleteMailById(mailId) {
-//     const idx = gMails.findIndex(mail => mail.id === mailId);
-//     if (idx >= 0) gMails.splice(idx, 1);
-//     return Promise.resolve();
-// }
+function removeTodo(ids) {
+    const currNote = gNotes.find(note => note.id === ids.noteId);
+    const todoIdx = currNote.info.todos.findIndex(todo => todo.id === ids.todoId);
+    if (todoIdx >= 0) currNote.info.todos.splice(todoIdx, 1);
+}
 
 
 // function toggleStarred(mailId) {
@@ -102,6 +107,8 @@ function getNoteList() {
 export const noteService = {
     getNoteById,
     getNoteList,
+    removeTodo
+    // toggleStarred,
     // connectGoogleApi,
     // deleteMailById,
     // getEmptyMail,
