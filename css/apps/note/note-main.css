@@ -1,6 +1,7 @@
 @import './cmps/note-preview.css';
 @import './cmps/note-list.css';
 @import './cmps/note-todos.css';
+@import './cmps/note-video.css';
 
 .note-page {
 

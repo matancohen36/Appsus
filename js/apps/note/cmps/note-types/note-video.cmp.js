@@ -3,9 +3,9 @@ export default {
     name: 'noteVideo',
     props: ['note'],
     template: `
-    <section>
-        <h1>{{note.info.txt}}</h1>
-    <iframe :src="note.info.url" ></iframe>
+        <section>
+            <h1>{{note.info.txt}}</h1>
+            <iframe :src="note.info.url"></iframe>
         </section>
     `
     ,
