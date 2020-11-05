@@ -32,10 +32,18 @@ function getMailList() {
 function toggleStarred(mailId) {
     const currMail = gMails.find(mail => mail.id === mailId);
     currMail.status.starMarked = !currMail.status.starMarked;
+    currMail.folder = 'Starred';
 };
 
 function getEmptyMail() {
-    return { id: utilService.makeId(8), folder: 'drafts', to: '', subject: '', body: '', status: { isSent: false, starMarked: false }, sentAt: '' }
+    return { id: utilService.makeId(8), folder: 'drafts', to: '', subject: '', body: '', status: { isSent: false, starMarked: false }, sentAt: '' }}
+
+function getFoldersMap() {
+    var foldersMap = gMails.reduce((map, mail) => {
+        map[mail.folder] = (map[mail.folder]) ? map[mail.folder] + 1 : 1;
+        return map;
+    }, {})
+    return Promise.resolve(foldersMap);
 }
 
 export const mailService = {
@@ -43,5 +51,6 @@ export const mailService = {
     getMailList,
     toggleStarred,
     deleteMailById,
-    getEmptyMail
+    getEmptyMail,
+    getFoldersMap
 };

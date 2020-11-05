@@ -2,7 +2,7 @@
 import mailApp from './apps/mail/pages/mail-app.cmp.js';
 import noteApp from './apps/note/pages/note-app.cmp.js';
 import mailDetails from './apps/mail/pages/mail-details.cmp.js';
-import mailDetails from './apps/mail/pages/mail-compose.cmp.cmp.js';
+import mailCompose from './apps/mail/pages/mail-compose.cmp.js';
 import mailList from './apps/mail/cmps/mail-list.cmp.js';
 import homePage from './pages/home-page.cmp.js';
 
@@ -23,12 +23,12 @@ const myRoutes = [
             component: mailList
         },
         {
-            path: '/mail/:mailid',
-            component: mailDetails
-        },
-        {
             path: '/mail/compose/:mailid?',
             component: mailCompose
+        },
+        {
+            path: '/mail/:mailid',
+            component: mailDetails
         },
             
         ]

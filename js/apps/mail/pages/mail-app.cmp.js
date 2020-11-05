@@ -12,7 +12,7 @@ export default {
             <mail-side-nav />
             <div class="mail-main-container flex column">
                 <mail-filter @filtered="setFilter"/>
-                <router-view :mails="mailsToShow"></router-view>
+                <router-view :mails="mailsToShow" @byFolder="setFilterBy"></router-view>
             </div>
         </section>
     `,
@@ -26,7 +26,11 @@ export default {
     methods: {
         setFilter(filterBy) {
             this.filterBy = filterBy;
+            this.$router.push('/mail').catch(()=>{});
         },
+        setFilterBy(folder) {
+            this.filterBy.byFolder = folder;
+        }
     },
     computed: {
         mailsToShow() {
@@ -36,7 +40,8 @@ export default {
             const folderName = this.filterBy.byFolder;
             return this.mails.filter(mail => {
                 return (
-                    mail.folder === folderName &&
+                    (mail.folder === folderName ||
+                     (mail.status.starMarked && folderName === 'Starred')) &&
                     (mail.from.toLowerCase().includes(name) ||
                     mail.subject.toLowerCase().includes(name)) &&
                     (
@@ -49,12 +54,12 @@ export default {
     created() {
         mailService.getMailList()
             .then(mails => this.mails = mails);
-        this.$router.push('/mail');
+        this.$router.push('/mail').catch(()=>{});
 
         eventBus.$on('delete', (mailId) => {
             mailService.deleteMailById(mailId)
             .then(() => mailService.getMailList().then(mails => this.mails = mails));
-            this.$router.push('/mail')
+            this.$router.push('/mail').catch(()=>{});
         });
     },
     components: {
