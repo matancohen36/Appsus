@@ -24,9 +24,6 @@ export default {
         };
     },
     watch: {
-        mails() {
-            eventBus.$emit('mailUpdated');
-        },
         mailsToShow() {
             eventBus.$emit('mailUpdated');
         }
@@ -63,6 +60,12 @@ export default {
         mailService.getMailList()
             .then(mails => this.mails = mails);
         this.$router.push('/mail').catch(()=>{});
+
+        eventBus.$on('addMail', () => {
+            mailService.getMailList()
+                .then(mails => this.mails = mails);
+            this.$router.push('/mail').catch(()=>{});
+        })
 
         eventBus.$on('delete', (mailId) => {
             mailService.deleteMailById(mailId)

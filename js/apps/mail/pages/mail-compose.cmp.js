@@ -1,4 +1,5 @@
 import { mailService } from '../services/mail-service.js';
+import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
     name: 'mailCompose',
@@ -9,26 +10,26 @@ export default {
             <h3> sending to: </h3> 
             <input type="text" placeholder="please enter mail receiver" v-model="mailToEdit.to" />
             <textarea v-model="mailToEdit.body" placeholder="please enter text for your mail"></textarea>
-            <p>{{mailToEdit}}</p>
             <button @click="sendMail"> Send</button>
         </section>
     `,
     data() {
         return {
             mailToEdit: mailService.getEmptyMail()
-        }
+        };
     },
     computed: {
 
     },
     methods: {
         sendMail() {
-            this.mailToEdit.status.isSent = true
-            this.mailToEdit.sentAt = Date.now()
-            this.mailToEdit.folder = 'Sent'
-            mailService.saveMail(this.mailToEdit).then(
-                this.$router.push('/mail').catch(() => { })
-            )
+            this.mailToEdit.status.isSent = true;
+            this.mailToEdit.sentAt = Date.now();
+            this.mailToEdit.folder = 'Sent';
+            mailService.saveMail(this.mailToEdit).then(() => {
+                this.$router.push('/mail').catch(() => { });
+                eventBus.$emit('addMail');
+            });
         }
     },
     components: {
@@ -38,10 +39,10 @@ export default {
         if (id) {
             mailService.getMailById(id)
                 .then(mail => {
-                    this.mailToEdit = mail
-                })
+                    this.mailToEdit = mail;
+                });
         }
     },
-}
+};
 
 

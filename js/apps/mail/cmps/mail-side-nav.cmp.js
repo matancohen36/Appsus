@@ -42,8 +42,7 @@ export default {
 
         eventBus.$on('mailUpdated', () => {
             mailService.getFoldersMap()
-            .then(map => 
-                {this.foldersMap = map; console.log(this.foldersMap)});
+            .then(map => this.foldersMap = map);
         })
     }
 }

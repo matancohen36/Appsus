@@ -51,11 +51,9 @@ function saveMail(mail) {
     if (mail.id) {
         const mailIdx = gMails.findIndex(currMail => mail.id === currMail.id)
         gMails.splice(mailIdx, 1, mail)
-        console.log('if:', gMails)
     } else {
         mail.id = utilService.makeId(8);
         gMails.unshift(mail);
-        console.log('else:', gMails)
     }
     
     return Promise.resolve(mail)
