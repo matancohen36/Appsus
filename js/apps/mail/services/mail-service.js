@@ -42,8 +42,11 @@ function getMailList() {
 
 
 function toggleStarred(mailId) {
+    debugger
     const currMail = gMails.find(mail => mail.id === mailId);
     currMail.status.starMarked = !currMail.status.starMarked;
+    _saveMailsToStorage();
+
 };
 
 function getEmptyMail() {
