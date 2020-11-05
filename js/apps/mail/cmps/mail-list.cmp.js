@@ -13,6 +13,7 @@ export default {
     methods: {
         toggleStarred(mailId) {
             mailService.toggleStarred(mailId);
+            this.$emit('byFolder', 'Starred')
         }
     },
     created() {
