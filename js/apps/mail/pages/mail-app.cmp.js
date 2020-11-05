@@ -24,6 +24,9 @@ export default {
         };
     },
     watch: {
+        mails() {
+            eventBus.$emit('mailUpdated');
+        },
         mailsToShow() {
             eventBus.$emit('mailUpdated');
         }
