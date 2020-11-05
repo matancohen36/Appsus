@@ -10,7 +10,6 @@ export default {
             <h3> sending to: </h3> 
             <input type="text" placeholder="please enter mail receiver" v-model="mailToEdit.to" />
             <textarea v-model="mailToEdit.body" placeholder="please enter text for your mail"></textarea>
-            <p>{{mailToEdit}}</p>
             <button @click="sendMail"> Send</button>
         </section>
     `,
