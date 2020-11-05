@@ -32,7 +32,6 @@ function getMailList() {
 function toggleStarred(mailId) {
     const currMail = gMails.find(mail => mail.id === mailId);
     currMail.status.starMarked = !currMail.status.starMarked;
-    currMail.folder = 'Starred';
 };
 
 function getEmptyMail() {
@@ -42,6 +41,7 @@ function getEmptyMail() {
 function getFoldersMap() {
     var foldersMap = gMails.reduce((map, mail) => {
         map[mail.folder] = (map[mail.folder]) ? map[mail.folder] + 1 : 1;
+        if (mail.status.starMarked) map['Starred'] = (map['Starred']) ? map['Starred'] + 1 : 1;
         return map;
     }, {})
     return Promise.resolve(foldersMap);
