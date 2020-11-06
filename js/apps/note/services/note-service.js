@@ -140,7 +140,6 @@ function removeTodo(ids) {
     const currNote = gNotes.find(note => note.id === ids.noteId);
     const todoIdx = currNote.info.todos.findIndex(todo => todo.id === ids.todoId);
     console.log('todoIdx:', todoIdx);
-    // if (todoIdx === -1 && currNote.info.todos.length > 1) 
     if (todoIdx >= 0) currNote.info.todos.splice(todoIdx, 1);
     saveNote(currNote);
 }
@@ -165,17 +164,6 @@ function getEmptyNote() {
 }
 
 
-// function saveMail(mail) {
-//     if (mail.id) {
-//         const mailIdx = gMails.findIndex(currMail => mail.id === currMail.id);
-//         gMails.splice(mailIdx, 1, mail);
-//     } else {
-//         mail.id = utilService.makeId(8);
-//         gMails.unshift(mail);
-//     }
-
-//     return Promise.resolve(mail);
-// }
 
 export const noteService = {
     getNoteById,
