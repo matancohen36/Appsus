@@ -1,5 +1,7 @@
 
 .mail-side-nav {
+    min-height: calc(100vh - 90px);
+    max-height: 100%;
     padding: 10px 20px;
     border-right: 1px solid black;
 }

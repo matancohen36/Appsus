@@ -1,6 +1,7 @@
 
 .mail-details{
-    height: 80vh;
-    background-color: lightgray;
+    /* border-top: 1px solid black; */
+    /* height: 80vh; */
+    /* background-color: rgba(224, 187, 138, 0.507); */
     padding-inline-start: 0.5rem;
 }
