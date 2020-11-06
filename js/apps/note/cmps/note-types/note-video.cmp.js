@@ -6,7 +6,7 @@ export default {
     template: `
         <section>
         <button class="btn btn-remove-note" @click="emitRemoveNote(note.id)">x</button>    
-            <h1>{{note.info.txt}}</h1>
+            <h1>{{note.info.title}}</h1>
             <iframe :src="videoUrl"></iframe>
         </section>
     `

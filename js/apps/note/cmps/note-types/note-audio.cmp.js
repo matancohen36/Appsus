@@ -6,7 +6,7 @@ export default {
     template: `
     <section>
     <button class="btn btn-remove-note" @click="emitRemoveNote(note.id)">x</button>    
-        <h1>{{note.info.txt}}</h1>
+        <h1>{{note.info.title}}</h1>
         <audio controls>
             <source :src="note.info.src" type="audio/mpeg">
         </audio>
@@ -19,7 +19,7 @@ export default {
             isPinned: true,
             info: {
                 src: '../../assets/mp3/song.mp3',
-                txt: 'We will Rock You'
+                title: 'We will Rock You'
             }
         };
     },
