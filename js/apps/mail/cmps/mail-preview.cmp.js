@@ -14,7 +14,7 @@ export default {
     `,
     computed: {
         sentTime() {
-            return new Date(this.mail.sentAt).toTimeString().substr(0, 8)
+            return (this.mail.sentAt) ? new Date(this.mail.sentAt).toTimeString().substr(0, 8) : '';
         },
         starImg() {
             return (this.isStarred) ? './js/apps/mail/assets/starChecked.png' : './js/apps/mail/assets/star.png'
