@@ -10,7 +10,6 @@ const gNotes = [
         },
         info: {
             txt: 'Fullstack Me Baby!',
-
         },
         styles: {
             backgroundColor: '',
@@ -47,7 +46,7 @@ const gNotes = [
             backgroundColor: '#00d',
         },
         info: {
-            label: 'How was it:',
+            title: 'How was it:',
             todos: [
                 { id: utilService.makeId(), txt: 'Do that', doneAt: null },
                 { id: utilService.makeId(), txt: 'Do this', doneAt: null }
@@ -68,7 +67,7 @@ const gNotes = [
         },
         info: {
             url: 'https://www.youtube.com/embed/qeF3Sx_IGvE',
-            txt: 'שלום בן טוב ושמן שלי '
+            title: 'שלום בן טוב ושמן שלי '
         }
     },
     {
@@ -84,13 +83,12 @@ const gNotes = [
         },
         info: {
             url: 'https://giphy.com/embed/1wqqlaQ7IX3TXibXZE',
-            txt: ' אני אחרי שירון אמר שהכל במצגת'
+            title: ' אני אחרי שירון אמר שהכל במצגת'
         }
     },
     {
         id: utilService.makeId(),
         type: 'note-audio',
-
         status: {
             pinned: false,
             marked: false,
@@ -101,7 +99,7 @@ const gNotes = [
         },
         info: {
             src: 'js/apps/note/assets/mp3/song.mp3',
-            txt: 'We will Rock You'
+            title: 'We will Rock You'
         }
     }
 
@@ -122,11 +120,14 @@ function getNoteList() {
 
 function saveNote(note) {
     const noteIdx = gNotes.findIndex(currNote => currNote.id === note.id);
-    if (noteIdx >= 0) gNotes.splice(noteIdx, 1, note);
+    if (noteIdx >= 0) gNotes.splice(noteIdx, 1, note)
+    else gNotes.unshift(note);
+    console.log('gNotes:', gNotes)
 }
 
 function addTodo(noteId) {
     const currNote = gNotes.find(note => note.id === noteId);
+    debugger
     currNote.info.todos.push(_getEmptyTodo());
 }
 
@@ -150,6 +151,7 @@ function _getEmptyTodo() {
 
 function getEmptyNote() {
     return {
+        id: utilService.makeId(8),
         type: 'note-txt',
         status: {
             pinned: false,
@@ -163,6 +165,32 @@ function getEmptyNote() {
     };
 }
 
+function buildNote(newNote, noteInfo) {
+    switch (newNote.type) {
+        case 'note-txt':
+            newNote.info.txt = noteInfo;
+            break;
+        case 'note-img':
+            newNote.info.src = noteInfo;
+            newNote.title = '';
+            break;
+        case 'note-video':
+            newNote.info.url = noteInfo;
+            newNote.info.title = '';
+            break;
+        case 'note-audio':
+            newNote.info.src = noteInfo;
+            newNote.info.title = '';
+            break;
+        case 'note-todos':
+            debugger
+            newNote.info.title = noteInfo;
+            newNote.info.todos = [];
+            break;
+    }
+    return Promise.resolve(newNote);
+}
+
 
 
 export const noteService = {
@@ -172,7 +200,8 @@ export const noteService = {
     removeNote,
     removeTodo,
     addTodo,
-    getEmptyNote
+    getEmptyNote,
+    buildNote
     // toggleStarred,
     // connectGoogleApi,
     // deleteMailById,

@@ -4,7 +4,7 @@ export default {
     name: 'noteList',
     props: ['notes'],
     template: `
-            <section class="notes-list flex wrap justify-center">
+            <section class="notes-list flex wrap">
                 <note-preview v-for="currNote in notes" :key="currNote.id" :note="currNote" />
             </section>
     `,

@@ -1,4 +1,5 @@
 import { noteService } from '../services/note-service.js'
+import { eventBus } from '../../../services/event-bus-service.js'
 
 export default {
     name: 'note-add',
@@ -20,7 +21,7 @@ export default {
                 { type: 'note-img', icon: 'fa fa-lg fa-image', placeholder: 'Enter image URL...' },
                 { type: 'note-video', icon: 'fab fa-lg fa-youtube', placeholder: 'Enter video URL...' },
                 { type: 'note-audio', icon: 'fas fa-lg fa-volume-up', placeholder: 'Enter audio URL...' },
-                { type: 'note-todos', icon: 'fas fa-lg fa-list', placeholder: 'First thing to do...' },
+                { type: 'note-todos', icon: 'fas fa-lg fa-list', placeholder: 'Enter name for to-do list...' },
                 // { type: 'note-map', icon: '' },
             ]
         };
@@ -39,9 +40,9 @@ export default {
 			this.$refs.elNewNote.focus();
 		},
 		addNote() {
-			// eventBus.$emit(EVENT_NOTE_ADDED, this.newNote, this.userData);
-			// this.newNote = notesService.emptyNote();
-			// this.userData = '';
+			eventBus.$emit('addNote', this.newNote, this.newNoteInput);
+			this.newNote = noteService.getEmptyNote();
+			this.newNoteInput = '';
         },
     },
     components: {
