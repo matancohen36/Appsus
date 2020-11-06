@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         emitStarred() {
-            if (!this.mail.status.isDeleted) {
+            if (!this.mail.status.isDeleted && this.mail.folder !== 'Drafts') {
                 eventBus.$emit('starred', this.mail.id);
                 this.mail.status.starMarked = !this.mail.status.starMarked;
             }

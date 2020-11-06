@@ -46,8 +46,8 @@ export default {
             return this.mails.filter(mail => {
                 return (
                     ((mail.folder === folderName && !mail.status.isDeleted) ||
-                     (mail.status.starMarked && folderName === 'Starred') ||
-                      (mail.status.isDeleted && folderName === 'Deleted')) &&
+                        (mail.status.starMarked && folderName === 'Starred') ||
+                        (mail.status.isDeleted && folderName === 'Deleted')) &&
                     (mail.from.toLowerCase().includes(name) ||
                         mail.subject.toLowerCase().includes(name)) &&
                     (
@@ -68,17 +68,19 @@ export default {
             this.$router.push('/mail').catch(() => { });
         });
 
-        eventBus.$on('starred', () => {
+        eventBus.$on('starred', (mailId) => {
+            mailService.toggleStarred(mailId);
             mailService.getMailList()
                 .then(mails => {
                     this.mails = mails;
                 });
+            this.$router.push('/mail').catch(() => { });
         });
 
         eventBus.$on('delete', (mailId) => {
             mailService.deleteMailById(mailId)
                 .then(() => mailService.getMailList()
-                .then(mails => this.mails = mails));
+                    .then(mails => this.mails = mails));
             this.$router.push('/mail').catch(() => { });
         });
     },
