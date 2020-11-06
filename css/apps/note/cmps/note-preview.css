@@ -4,5 +4,8 @@
     border-radius: 10px;
     margin: 10px;
     width: 300px;
-    align-items: center;
+    height: fit-content;
+    /* align-items: center; */
+    padding: 10px;
+    vertical-align: baseline;
 }

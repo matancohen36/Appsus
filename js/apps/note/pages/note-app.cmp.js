@@ -50,6 +50,14 @@ export default {
                 .then(notes => this.notes = notes);
         });
 
+        eventBus.$on('addNote', (newNote, noteInfo) => {
+            noteService.buildNote(newNote, noteInfo)
+                .then(noteToAdd => {
+                    noteService.saveNote(noteToAdd)
+                    noteService.getNoteList()
+                        .then(notes => this.notes = notes)
+                });
+        })
     },
     components: {
         noteAdd,

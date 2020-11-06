@@ -5,7 +5,7 @@ export default {
     name: 'bookAdd',
     template: `
         <section class="book-add-container">
-            <input type="text" placeholder="Find new book..." v-model.trim="searchTerm" @change="onSearchBook"/>
+            <input type="text" placeholder="Find new book..." v-model.trim="searchTerm" @keyup.enter="searchBook" @change="searchBook"/>
             
                 <ul class="clean-list">
                     <li class="book-list-new flex space-evenly align-center">
@@ -13,7 +13,7 @@ export default {
                         v-for="book in books"
                         :key="book.id"
                         :book="book"
-                        @addBook="onAddBook"
+                        @addBook="addBook"
                     />
                     </li>
                 </ul>
@@ -29,7 +29,7 @@ export default {
         }
     },
     methods: {
-        onSearchBook() {
+        searchBook() {
             bookService.getSearchResults(this.searchTerm)
                 .then(books => {
                     if (!this.searchTerm) this.books = books;
@@ -38,10 +38,9 @@ export default {
 
                 })
         },
-        onAddBook(book) {
+        addBook(book) {
             bookService.addGoogleBook(book)
                 .then(() => console.log('added book succesfully!'))
-            console.log('got book:', book)
         }
     },
     components: {
