@@ -45,8 +45,9 @@ export default {
             const folderName = this.filterBy.byFolder;
             return this.mails.filter(mail => {
                 return (
-                    (mail.folder === folderName ||
-                        (mail.status.starMarked && folderName === 'Starred')) &&
+                    ((mail.folder === folderName && !mail.status.isDeleted) ||
+                     (mail.status.starMarked && folderName === 'Starred') ||
+                      (mail.status.isDeleted && folderName === 'Deleted')) &&
                     (mail.from.toLowerCase().includes(name) ||
                         mail.subject.toLowerCase().includes(name)) &&
                     (
@@ -76,7 +77,8 @@ export default {
 
         eventBus.$on('delete', (mailId) => {
             mailService.deleteMailById(mailId)
-                .then(() => mailService.getMailList().then(mails => this.mails = mails));
+                .then(() => mailService.getMailList()
+                .then(mails => this.mails = mails));
             this.$router.push('/mail').catch(() => { });
         });
     },

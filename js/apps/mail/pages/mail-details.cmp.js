@@ -3,11 +3,10 @@ import { mailService } from '../services/mail-service.js';
 import mailRecieved from '../cmps/mail-recieved.cmp.js';
 import mailSent from '../cmps/mail-sent.cmp.js';
 
-// line 10 consider using v-show
 export default {
     name: 'mailDetails',
     template: `
-        <component :is="mailTypeComponent" @deleteMail="deleteMail" :mail="mail"></component>
+        <component :is="mailTypeComponent" @deleteMail="emitDeleteMail" :mail="mail"></component>
     `,
     data() {
         return {
@@ -28,7 +27,7 @@ export default {
         }
     },
     methods: {
-        deleteMail(mailId) {
+        emitDeleteMail(mailId) {
             eventBus.$emit('delete', mailId);
         }
     },
