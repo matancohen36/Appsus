@@ -10,6 +10,7 @@ export default {
         <audio controls>
             <source :src="note.info.src" type="audio/mpeg">
         </audio>
+        
         </section>
     `
     ,

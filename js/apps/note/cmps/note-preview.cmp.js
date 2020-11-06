@@ -1,3 +1,5 @@
+import { eventBus } from '../../../services/event-bus-service.js'
+import colorPicker from '../cmps/color-picker.cmp.js';
 import noteAudio from '../cmps/note-types/note-audio.cmp.js';
 import noteImg from '../cmps/note-types/note-img.cmp.js';
 // import noteMap from '../cmps/note-types/note-map.cmp.js';
@@ -9,8 +11,11 @@ import noteVideo from '../cmps/note-types/note-video.cmp.js';
 export default {
     name: 'notePreview',
     props: ['note'],
-    template: ` 
-        <component :style="note.styles" :note="note" :is="noteComponent" class="note flex column"></component>
+    template: `
+        <section class="note" :style="note.styles">
+        <component :note="note" :is="noteComponent" class=" flex column"></component>
+        <color-picker  @changeColor="setBgc"/>
+        </section>
     `,
     data() {
         return {
@@ -20,7 +25,10 @@ export default {
         }
     },
     methods: {
-
+        setBgc(bgc) {
+            this.note.styles.backgroundColor = bgc
+            eventBus.$emit('saveNote', this.note);
+        }
     },
     computed: {
         noteComponent() {
@@ -28,7 +36,6 @@ export default {
         }
     },
     created() {
-
     },
     components: {
         noteAudio,
@@ -36,6 +43,7 @@ export default {
         // noteMap,
         noteTodos,
         noteTxt,
-        noteVideo
+        noteVideo,
+        colorPicker
     }
 }
