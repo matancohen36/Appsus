@@ -48,7 +48,7 @@ function toggleStarred(mailId) {
 };
 
 function getEmptyMail() {
-    const emptyMail = { id: '', folder: 'drafts', to: '', from: '', subject: '', body: '', status: { isDeleted: false, starMarked: false, isRead: false }, sentAt: '' }
+    const emptyMail = { id: utilService.makeId(8), folder: 'Drafts', to: '', from: '', subject: '', body: '', status: { isDeleted: false, starMarked: false, isRead: false }, sentAt: '' }
     return Promise.resolve(emptyMail)
 }
 
@@ -62,13 +62,10 @@ function getFoldersMap() {
 }
 
 function saveMail(mail) {
-    if (mail.id) {
-        const mailIdx = gMails.findIndex(currMail => mail.id === currMail.id)
-        gMails.splice(mailIdx, 1, mail)
-    } else {
-        mail.id = utilService.makeId(8);
-        gMails.unshift(mail);
-    }
+    const mailIdx = gMails.findIndex(currMail => mail.id === currMail.id)
+    if (mailIdx >= 0) gMails.splice(mailIdx, 1, mail)
+    else gMails.unshift(mail);
+
     _saveMailsToStorage();
     return Promise.resolve(mail)
 }
@@ -81,7 +78,7 @@ export const mailService = {
     getEmptyMail,
     getFoldersMap,
     saveMail,
-    
+
 };
 
 

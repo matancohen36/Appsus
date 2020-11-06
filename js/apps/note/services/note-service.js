@@ -43,6 +43,15 @@ const gNotes = [
     },
     {
         id: utilService.makeId(),
+        type: 'noteVideo',
+        isPinned: true,
+        info: {
+            url: 'https://giphy.com/embed/1wqqlaQ7IX3TXibXZE',
+            txt: ' אני אחרי שירון אמר שהכל במצגת'
+        }
+    },
+    {
+        id: utilService.makeId(),
         type: 'noteAudio',
         isPinned: true,
         info: {
@@ -51,7 +60,7 @@ const gNotes = [
         }
     }
 
-   
+
 
 ];
 
@@ -74,7 +83,7 @@ function removeTodo(ids) {
 }
 
 function removeNote(noteId) {
-    const idx = gNotes.findIndex(note => note.id === noteId) 
+    const idx = gNotes.findIndex(note => note.id === noteId)
     if (idx >= 0) gNotes.splice(idx, 1)
 }
 

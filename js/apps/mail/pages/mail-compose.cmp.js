@@ -21,11 +21,16 @@ export default {
     computed: {
 
     },
+    watch: {
+        mailToEdit() {
+            mailService.saveMail(this.mailToEdit)
+        }
+    },
     methods: {
         sendMail() {
             this.mailToEdit.sentAt = Date.now();
             this.mailToEdit.folder = 'Sent';
-            
+
             mailService.saveMail(this.mailToEdit).then(() => {
                 this.$router.push('/mail').catch(() => { });
                 eventBus.$emit('addMail');
@@ -36,19 +41,18 @@ export default {
     },
     created() {
         const id = this.$route.params.mailid;
-        mailService.getEmptyMail()
-            .then((mail) => {
-                this.mailToEdit = mail;
-                return Promise.resolve();
-            })
-            .then(() => {
-                if (id) {
-                    mailService.getMailById(id)
-                        .then(mail => {
-                            this.mailToEdit = mail;
-                        });
-                }
-            });
+        if (!id) {
+            mailService.getEmptyMail()
+                .then((mail) => {
+                    this.mailToEdit = mail;
+                    return Promise.resolve();
+                })
+        } else
+            mailService.getMailById(id)
+                .then(mail => {
+                    this.mailToEdit = mail;
+                });
+
     },
 };
 
