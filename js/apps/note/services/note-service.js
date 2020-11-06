@@ -43,6 +43,15 @@ const gNotes = [
     },
     {
         id: utilService.makeId(),
+        type: 'noteVideo',
+        isPinned: true,
+        info: {
+            url: 'https://giphy.com/embed/1wqqlaQ7IX3TXibXZE',
+            txt: ' אני אחרי שירון אמר שהכל במצגת'
+        }
+    },
+    {
+        id: utilService.makeId(),
         type: 'noteAudio',
         isPinned: true,
         info: {

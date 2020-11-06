@@ -1,13 +1,13 @@
 import { eventBus } from '../../../services/event-bus-service.js';
 import { mailService } from '../services/mail-service.js';
-
+// line 10 consider using v-show
 export default {
     name: 'mailDetails',
     template: `
         <section class ="mail-details flex column">
             <h2> Mail Subject : {{mail.subject}} </h2> 
             <h3> {{fromOrToTxt}}: {{mail.to || mail.from}}</h3> 
-            <h1> {{recievedOrSentTxt}} at: {{mail.sentAt}}</h1> 
+            <h1 >  {{recievedOrSentTxt}} at: {{mail.sentAt}}</h1>           
             <p>{{mail.body}}</p>
             <button @click="deleteMail(mail.id)">Delete Mail</button>
             <router-link v-show="mail.folder === 'Drafts'" :to="'/mail/compose/' + mail.id" >Edit</router-link>
