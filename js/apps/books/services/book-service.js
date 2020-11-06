@@ -6,7 +6,8 @@ const gBooks = booksJson();
 export const bookService = {
     getBooks,
     getById,
-    getSearchResults
+    getSearchResults,
+    addGoogleBook
 }
 
 function getBooks() {
@@ -29,7 +30,7 @@ function getSearchResults(searchTerm) {
 
 
 function formatBooks(items) {
-    const defaultImg = 'https://images-na.ssl-images-amazon.com/images/I/81EBYGGN6QL.jpg'
+    const defaultImg = 'https://images-na.ssl-images-amazon.com/images/I/81EBYGGN6QL._AC_SX75_CR,0,0,75,75_.jpg'
     const books = items.map(book => {
         const { authors, categories, title, language, description, subtitle, pageCount, publishedDate } = book.volumeInfo;
         const thumbnail = !book.volumeInfo.imageLinks ? defaultImg : book.volumeInfo.imageLinks.thumbnail
@@ -59,5 +60,11 @@ function getRandCurrencyCode() {
     const coins = ['ILS', 'EUR', 'USD'];
     const randIdx = Math.floor(Math.random() * coins.length);
     return coins[randIdx]
+}
+
+function addGoogleBook(book) {
+    gBooks.unshift(book);
+    // saveBooksToStorage();
+    return Promise.resolve();
 }
 

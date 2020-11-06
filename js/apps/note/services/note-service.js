@@ -2,28 +2,50 @@ import { utilService } from '../../../services/util-service.js';
 const gNotes = [
     {
         id: utilService.makeId(),
-        type: 'noteTxt',
-        isPinned: true,
+        type: 'note-txt',
+        status: {
+            pinned: false,
+            marked: false,
+            editMode: false,
+        },
         info: {
             txt: 'Fullstack Me Baby!',
-        }
-    },
+
+        },
+        styles: {
+            backgroundColor: '',
+        },
+    }
+
+    ,
     {
         id: utilService.makeId(),
-        type: 'noteImg',
-        isPinned: true,
-        info: {
-            url: 'js/apps/note/assets/img/meme.jpg',
-            title: 'Me Playing Mi'
+        type: 'note-img',
+        status: {
+            pinned: false,
+            marked: false,
+            editMode: false,
         },
 
-        style: {
+        styles: {
             backgroundColor: '#00d'
-        }
+        },
+        info: {
+            src: 'js/apps/note/assets/img/meme.jpg',
+            title: 'when we made the memegen'
+        },
     },
     {
         id: utilService.makeId(),
-        type: 'noteTodos',
+        type: 'note-todos',
+        status: {
+            pinned: false,
+            marked: false,
+            editMode: false,
+        },
+        styles: {
+            backgroundColor: '#00d',
+        },
         info: {
             label: 'How was it:',
             todos: [
@@ -32,10 +54,18 @@ const gNotes = [
             ]
         }
     },
+
     {
         id: utilService.makeId(),
-        type: 'noteVideo',
-        isPinned: true,
+        type: 'note-video',
+        status: {
+            pinned: false,
+            marked: false,
+            editMode: false,
+        },
+        styles: {
+            backgroundColor: '#00d',
+        },
         info: {
             url: 'https://www.youtube.com/embed/qeF3Sx_IGvE',
             txt: 'שלום בן טוב ושמן שלי '
@@ -43,8 +73,15 @@ const gNotes = [
     },
     {
         id: utilService.makeId(),
-        type: 'noteVideo',
-        isPinned: true,
+        type: 'note-video',
+        status: {
+            pinned: false,
+            marked: false,
+            editMode: false,
+        },
+        styles: {
+            backgroundColor: '#00d',
+        },
         info: {
             url: 'https://giphy.com/embed/1wqqlaQ7IX3TXibXZE',
             txt: ' אני אחרי שירון אמר שהכל במצגת'
@@ -52,8 +89,16 @@ const gNotes = [
     },
     {
         id: utilService.makeId(),
-        type: 'noteAudio',
-        isPinned: true,
+        type: 'note-audio',
+
+        status: {
+            pinned: false,
+            marked: false,
+            editMode: false,
+        },
+        styles: {
+            backgroundColor: '#00d',
+        },
         info: {
             src: 'js/apps/note/assets/mp3/song.mp3',
             txt: 'We will Rock You'

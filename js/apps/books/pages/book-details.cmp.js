@@ -1,11 +1,13 @@
 import { bookService } from '../services/book-service.js';
 import longText from '../cmps/long-text.cmp.js';
 import reviewAdd from '../cmps/review-add.cmp.js';
-
 export default {
     template: `
         <section v-if="book" class="book-details">
-            <button class="btn-all-books" @click="emitReturn">All Books</button>
+            <div class="book-img">
+                    <img :src="book.thumbnail" class="book-thumbnail">
+                    <img v-show="isBookOnSale" src="./imgs/sale.png" class="sale-sign" />
+                </div>
             <div :class="bookClass" v-for="(val,key) in bookDetails">
                 <p class="book-detail">{{key}}:</p>
                 <p  v-if="key !== 'description'">{{val}}</p>
@@ -13,7 +15,7 @@ export default {
                 <p class="extra-detail" v-if="key === 'title'">{{readingLevel}}</p>
                 <p class="extra-detail" v-if="key === 'title'">{{bookAge}}</p>
             </div>
-            <img v-if="isOnSale" src="../img/sale.png">
+            <img v-if="isOnSale" src="../assets/img/sale.png">
             <hr />
             <review-add />
         </section>
@@ -24,9 +26,6 @@ export default {
         };
     },
     methods: {
-        emitReturn() {
-            this.$emit('return');
-        }
     },
     computed: {
         bookDetails() {
