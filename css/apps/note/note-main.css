@@ -3,6 +3,8 @@
 @import './cmps/note-todos.css';
 @import './cmps/note-video.css';
 
-.note-page {
 
+
+.btn-remove-note {
+    color:red
 }

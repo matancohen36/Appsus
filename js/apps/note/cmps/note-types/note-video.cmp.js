@@ -5,7 +5,7 @@ export default {
     props: ['note'],
     template: `
         <section>
-        <button class="btn-remove-note" @click="emitRemoveNote(note.id)">x</button>    
+        <button class="btn btn-remove-note" @click="emitRemoveNote(note.id)">x</button>    
             <h1>{{note.info.txt}}</h1>
             <iframe :src="note.info.url"></iframe>
         </section>

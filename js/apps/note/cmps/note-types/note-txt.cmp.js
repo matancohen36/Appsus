@@ -5,7 +5,7 @@ export default {
     props: ['note'],
     template: `
         <section>
-        <button class="btn-remove-note" @click="emitRemoveNote(note.id)">x</button>    
+        <button class="btn btn-remove-note" @click="emitRemoveNote(note.id)">x</button>    
             <p>{{note.info.txt}}</p>
         </section>
     `,

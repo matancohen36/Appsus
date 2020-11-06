@@ -1,6 +1,7 @@
-// import bookApp from './apps/books'
 import mailApp from './apps/mail/pages/mail-app.cmp.js';
 import noteApp from './apps/note/pages/note-app.cmp.js';
+import bookApp from './apps/books/pages/book-app.cmp.js';
+import bookDetails from './apps/books/pages/book-details.cmp.js';
 import mailDetails from './apps/mail/pages/mail-details.cmp.js';
 import mailCompose from './apps/mail/pages/mail-compose.cmp.js';
 import mailList from './apps/mail/cmps/mail-list.cmp.js';
@@ -10,6 +11,14 @@ const myRoutes = [
     {
         path: '/',
         component: homePage
+    },
+    {
+        path: '/book',
+        component: bookApp
+    },
+    {
+        path: '/book/:bookId',
+        component: bookDetails
     },
     {
         path: '/note',
