@@ -26,11 +26,11 @@ export default {
         noteService.getNoteList()
             .then(notes => this.notes = notes);
 
-        // eventBus.$on('removeTodo', ids => {
-        //     todoService.removeTodo(ids);
-        //     noteService.getNoteList()
-        //         .then(notes => this.notes = notes);
-        // });
+        eventBus.$on('removeTodo', ids => {
+            noteService.removeTodo(ids);
+            noteService.getNoteList()
+                .then(notes => this.notes = notes);
+        });
 
         eventBus.$on('addTodo', noteId => {
             noteService.addTodo(noteId);
@@ -44,8 +44,8 @@ export default {
                 .then(notes => this.notes = notes);
         });
 
-        eventBus.$on('removeNote', id => {
-            noteService.removeNote(id);
+        eventBus.$on('removeNote', noteId => {
+            noteService.removeNote(noteId);
             noteService.getNoteList()
                 .then(notes => this.notes = notes);
         });

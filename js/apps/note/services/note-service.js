@@ -51,7 +51,7 @@ const gNotes = [
         }
     }
 
-   
+
 
 ];
 
@@ -72,17 +72,24 @@ function saveNote(note) {
     if (noteIdx >= 0) gNotes.splice(noteIdx, 1, note);
 }
 
-function removeNote(noteId) {
-    const idx = gNotes.findIndex(note => note.id === noteId) 
-    if (idx >= 0) gNotes.splice(idx, 1)
+function addTodo(noteId) {
+    const currNote = gNotes.find(note => note.id === noteId);
+    currNote.info.todos.push(_getEmptyTodo());
 }
 
-function addTodo(noteId) {
-    getNoteById(noteId)
-        .then(currNote => { 
-            currNote.info.todos.push(_getEmptyTodo());
-            saveNote(currNote);
-        });
+function removeNote(noteId) {
+    const idx = gNotes.findIndex(note => note.id === noteId);
+    if (idx >= 0) gNotes.splice(idx, 1);
+}
+
+function removeTodo(ids) {
+    debugger
+    const currNote = gNotes.find(note => note.id === ids.noteId);
+    const todoIdx = currNote.info.todos.findIndex(todo => todo.id === ids.todoId);
+    console.log('todoIdx:', todoIdx)
+    // if (todoIdx === -1 && currNote.info.todos.length > 1) 
+    if (todoIdx >= 0) currNote.info.todos.splice(todoIdx, 1);
+    saveNote(currNote);
 }
 
 function _getEmptyTodo() {
@@ -109,6 +116,7 @@ export const noteService = {
     getNoteList,
     saveNote,
     removeNote,
+    removeTodo,
     addTodo
     // toggleStarred,
     // connectGoogleApi,
