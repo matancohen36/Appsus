@@ -1,6 +1,5 @@
 .mail-main-container {
     width: 100%;
-    /* margin: 20px; */
 }
 
 .mail-preview {
@@ -13,5 +12,4 @@
 }
 
 .mail-preview:first-child {
-    /* border-top: 1px solid black; */
 }

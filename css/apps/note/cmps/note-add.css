@@ -1,0 +1,32 @@
+
+.note-add-bar {
+    max-width: 600px;
+    width: 70vw;
+    height: 3rem;
+    margin: 20px auto;
+    background-color: rgba(245, 222, 179, 0.527);
+}
+
+.note-add-bar > * {
+    height: 100%;
+}
+
+.note-add-input {
+    flex-grow: 1;
+    border: none;
+    margin: 0 10px;
+    background-color: transparent;
+}
+
+.note-add-icons {
+    width: 7%;
+}
+
+.note-add-icon {
+    opacity: 0.4;
+}
+
+.note-add-icon:hover, .note-add-icon.selected {
+    opacity: 1;
+    cursor: pointer;
+}

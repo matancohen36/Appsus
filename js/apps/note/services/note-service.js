@@ -65,7 +65,6 @@ const gNotes = [
 ];
 
 
-
 function getNoteById(noteId) {
     const wantedNote = gNotes.find(note => note.id === noteId);
     const note = JSON.parse(JSON.stringify(wantedNote));
@@ -92,10 +91,10 @@ function removeNote(noteId) {
 }
 
 function removeTodo(ids) {
-    debugger
+    debugger;
     const currNote = gNotes.find(note => note.id === ids.noteId);
     const todoIdx = currNote.info.todos.findIndex(todo => todo.id === ids.todoId);
-    console.log('todoIdx:', todoIdx)
+    console.log('todoIdx:', todoIdx);
     // if (todoIdx === -1 && currNote.info.todos.length > 1) 
     if (todoIdx >= 0) currNote.info.todos.splice(todoIdx, 1);
     saveNote(currNote);
@@ -105,7 +104,20 @@ function _getEmptyTodo() {
     return { id: utilService.makeId(), txt: '', doneAt: null };
 }
 
-
+function getEmptyNote() {
+    return {
+        type: 'note-txt',
+        status: {
+            pinned: false,
+            marked: false,
+            editMode: false,
+        },
+        styles: {
+            backgroundColor: '',
+        },
+        info: {},
+    };
+}
 
 
 // function saveMail(mail) {
@@ -126,7 +138,8 @@ export const noteService = {
     saveNote,
     removeNote,
     removeTodo,
-    addTodo
+    addTodo,
+    getEmptyNote
     // toggleStarred,
     // connectGoogleApi,
     // deleteMailById,
