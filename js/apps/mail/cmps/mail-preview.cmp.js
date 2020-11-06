@@ -17,7 +17,7 @@ export default {
             return (this.mail.sentAt) ? new Date(this.mail.sentAt).toTimeString().substr(0, 8) : '';
         },
         starImg() {
-            return (this.isStarred) ? './js/apps/mail/assets/starChecked.png' : './js/apps/mail/assets/star.png'
+            return (this.isStarred) ? './js/apps/mail/assets/starChecked.png' : './js/apps/mail/assets/star.png';
         },
         isStarred() {
             return this.mail.status.starMarked;
@@ -25,8 +25,10 @@ export default {
     },
     methods: {
         emitStarred() {
-            eventBus.$emit('starred', this.mail.id);
-            this.mail.status.starMarked = !this.mail.status.starMarked;
+            if (!this.mail.status.isDeleted) {
+                eventBus.$emit('starred', this.mail.id);
+                this.mail.status.starMarked = !this.mail.status.starMarked;
+            }
         }
     }
-}
+};
