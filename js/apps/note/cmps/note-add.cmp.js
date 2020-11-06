@@ -16,18 +16,18 @@ export default {
             newNote: noteService.getEmptyNote(),
             newNoteInput: '',
             noteTypes: [
-                { type: 'note-txt', icon: 'fa fa-lg fa-font' },
-                { type: 'note-img', icon: 'fa fa-lg fa-image' },
-                { type: 'note-video', icon: 'fab fa-lg fa-youtube' },
-                { type: 'note-audio', icon: 'fas fa-lg fa-volume-up' },
-                { type: 'note-todos', icon: 'fas fa-lg fa-list' },
+                { type: 'note-txt', icon: 'fa fa-lg fa-font', placeholder: 'What\'s on your mind...' },
+                { type: 'note-img', icon: 'fa fa-lg fa-image', placeholder: 'Enter image URL...' },
+                { type: 'note-video', icon: 'fab fa-lg fa-youtube', placeholder: 'Enter video URL...' },
+                { type: 'note-audio', icon: 'fas fa-lg fa-volume-up', placeholder: 'Enter audio URL...' },
+                { type: 'note-todos', icon: 'fas fa-lg fa-list', placeholder: 'First thing to do...' },
                 // { type: 'note-map', icon: '' },
             ]
         };
     },
     computed: {
         placeholder() {
-            return 'What\'s on your mind...'
+            return this.noteTypes.find(currType => currType.type === this.newNote.type).placeholder;
         }
     },
     methods: {
