@@ -76,10 +76,9 @@ function getNoteList() {
     return Promise.resolve(noteList);
 }
 
-function removeTodo(ids) {
-    const currNote = gNotes.find(note => note.id === ids.noteId);
-    const todoIdx = currNote.info.todos.findIndex(todo => todo.id === ids.todoId);
-    if (todoIdx >= 0) currNote.info.todos.splice(todoIdx, 1);
+function updateNote(note) {
+    const noteIdx = gNotes.findIndex(currNote => currNote.id === note.id);
+    if (noteIdx >= 0) gNotes.splice(noteIdx, 1, note);
 }
 
 function removeNote(noteId) {
@@ -90,23 +89,6 @@ function removeNote(noteId) {
 
 
 
-// function toggleStarred(mailId) {
-//     const currMail = gMails.find(mail => mail.id === mailId);
-//     currMail.status.starMarked = !currMail.status.starMarked;
-// };
-
-// function getEmptyMail() {
-//     return { id: '', folder: 'drafts', to: '', from: '', subject: '', body: '', status: { isSent: false, starMarked: false, isRead: true }, sentAt: '' };
-// }
-
-// function getFoldersMap() {
-//     var foldersMap = gMails.reduce((map, mail) => {
-//         map[mail.folder] = (map[mail.folder]) ? map[mail.folder] + 1 : 1;
-//         if (mail.status.starMarked) map['Starred'] = (map['Starred']) ? map['Starred'] + 1 : 1;
-//         return map;
-//     }, {});
-//     return Promise.resolve(foldersMap);
-// }
 
 // function saveMail(mail) {
 //     if (mail.id) {
@@ -123,7 +105,7 @@ function removeNote(noteId) {
 export const noteService = {
     getNoteById,
     getNoteList,
-    removeTodo,
+    updateNote,
     removeNote
     // toggleStarred,
     // connectGoogleApi,
