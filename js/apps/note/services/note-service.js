@@ -13,7 +13,7 @@ const gNotes = [
         type: 'noteImg',
         isPinned: true,
         info: {
-            url: 'assets/favicon.png',
+            url: 'js/apps/note/assets/img/meme.jpg',
             title: 'Me Playing Mi'
         },
 
