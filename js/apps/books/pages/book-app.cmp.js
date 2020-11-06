@@ -1,12 +1,15 @@
 import { bookService } from '../services/book-service.js';
 import bookFilter from '../cmps/book-filter.cmp.js';
 import bookList from '../cmps/book-list.cmp.js';
+import bookAdd from '../cmps/book-add.cmp.js';
 import bookDetails from '../pages/book-details.cmp.js';
 
 export default {
+    name:'bookApp',
     template: `
     <section>
         <book-filter @filtered="setFilter" />
+        <book-add v-if="isShowModal"/>
         <book-list :books="booksToShow" />
         <book-details />
     </section>
@@ -15,6 +18,8 @@ export default {
         return {
             books: [],
             filterBy: null,
+            isShowModal: true
+
         };
     },
     methods: {
@@ -51,6 +56,7 @@ export default {
     components: {
         bookFilter,
         bookList,
-        bookDetails
+        bookDetails,
+        bookAdd
     }
 };
