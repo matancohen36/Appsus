@@ -67,7 +67,7 @@ function getNoteList() {
     return Promise.resolve(noteList);
 }
 
-function updateNote(note) {
+function saveNote(note) {
     const noteIdx = gNotes.findIndex(currNote => currNote.id === note.id);
     if (noteIdx >= 0) gNotes.splice(noteIdx, 1, note);
 }
@@ -77,6 +77,17 @@ function removeNote(noteId) {
     if (idx >= 0) gNotes.splice(idx, 1)
 }
 
+function addTodo(noteId) {
+    getNoteById(noteId)
+        .then(currNote => { 
+            currNote.info.todos.push(_getEmptyTodo());
+            saveNote(currNote);
+        });
+}
+
+function _getEmptyTodo() {
+    return { id: utilService.makeId(), txt: '', doneAt: null };
+}
 
 
 
@@ -96,8 +107,9 @@ function removeNote(noteId) {
 export const noteService = {
     getNoteById,
     getNoteList,
-    updateNote,
-    removeNote
+    saveNote,
+    removeNote,
+    addTodo
     // toggleStarred,
     // connectGoogleApi,
     // deleteMailById,
