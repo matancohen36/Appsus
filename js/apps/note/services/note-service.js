@@ -13,7 +13,7 @@ const gNotes = [
         type: 'noteImg',
         isPinned: true,
         info: {
-            url: '../../../../assets/favicon.png',
+            url: 'assets/favicon.png',
             title: 'Me Playing Mi'
         },
 
