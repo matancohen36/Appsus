@@ -11,7 +11,7 @@ export default {
     props: ['note'],
     template: `
         
-        <component :note="note" :is="noteComponent" class="note flex column"></component>
+        <component :style="note.styles" :note="note" :is="noteComponent" class="note flex column"></component>
     `,
     data() {
         return {

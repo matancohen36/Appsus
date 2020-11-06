@@ -15,7 +15,7 @@ function getDefaultNotes(){
                 txt: 'Fullstack Me Baby!',
             },
             styles: {
-                backgroundColor: '',
+                backgroundColor: '#e0bb8a81',
             },
         }
     
@@ -30,7 +30,7 @@ function getDefaultNotes(){
             },
     
             styles: {
-                backgroundColor: '#00d'
+                backgroundColor: '#e0bb8a81'
             },
             info: {
                 src: 'js/apps/note/assets/img/meme.jpg',
@@ -46,7 +46,7 @@ function getDefaultNotes(){
                 editMode: false,
             },
             styles: {
-                backgroundColor: '#00d',
+                backgroundColor: '#e0bb8a81',
             },
             info: {
                 title: 'How was it:',
@@ -66,7 +66,7 @@ function getDefaultNotes(){
                 editMode: false,
             },
             styles: {
-                backgroundColor: '#00d',
+                backgroundColor: '#e0bb8a81',
             },
             info: {
                 url: 'https://www.youtube.com/embed/qeF3Sx_IGvE',
@@ -82,7 +82,7 @@ function getDefaultNotes(){
                 editMode: false,
             },
             styles: {
-                backgroundColor: '#00d',
+                backgroundColor: '#e0bb8a81',
             },
             info: {
                 url: 'https://giphy.com/embed/1wqqlaQ7IX3TXibXZE',
@@ -98,7 +98,7 @@ function getDefaultNotes(){
                 editMode: false,
             },
             styles: {
-                backgroundColor: '#00d',
+                backgroundColor: '#e0bb8a81',
             },
             info: {
                 src: 'js/apps/note/assets/mp3/song.mp3',
@@ -156,7 +156,7 @@ function getEmptyNote() {
             editMode: false,
         },
         styles: {
-            backgroundColor: '',
+            backgroundColor: '#e0bb8a81',
         },
         info: {},
     };
