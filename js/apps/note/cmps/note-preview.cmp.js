@@ -9,8 +9,7 @@ import noteVideo from '../cmps/note-types/note-video.cmp.js';
 export default {
     name: 'notePreview',
     props: ['note'],
-    template: `
-        
+    template: ` 
         <component :style="note.styles" :note="note" :is="noteComponent" class="note flex column"></component>
     `,
     data() {

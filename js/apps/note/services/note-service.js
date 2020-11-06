@@ -180,9 +180,8 @@ function buildNote(newNote, noteInfo) {
             newNote.info.title = '';
             break;
         case 'note-todos':
-            debugger
             newNote.info.title = noteInfo;
-            newNote.info.todos = [];
+            newNote.info.todos = [_getEmptyTodo()];
             break;
     }
     return Promise.resolve(newNote);
@@ -195,15 +194,14 @@ function buildNote(newNote, noteInfo) {
 // NOTE - TODO!
 function addTodo(noteId) {
     const currNote = gNotes.find(note => note.id === noteId);
-    debugger
     currNote.info.todos.push(_getEmptyTodo());
+    saveNote(currNote);
 }
 
 function _getEmptyTodo() {
     return { id: utilService.makeId(), txt: '', doneAt: null };
 }
 function removeTodo(ids) {
-    debugger;
     const currNote = gNotes.find(note => note.id === ids.noteId);
     const todoIdx = currNote.info.todos.findIndex(todo => todo.id === ids.todoId);
     console.log('todoIdx:', todoIdx);
