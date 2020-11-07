@@ -10,3 +10,32 @@
 i{
     cursor: pointer;
 }
+
+
+@media (max-width: 1016px) {
+    .notes-list {
+    column-count: 3;
+    }
+    .note{
+        width: 250px;
+        margin: 8px auto;
+        padding: 8px;
+    }
+    iframe {
+        border: none;
+        margin-bottom: 10px;
+        width:250px
+    }
+    audio{
+        width:250px;
+    }
+}
+
+@media (max-width: 720px) {
+    .notes-list {
+        column-count: 2;
+        }
+    }
+    .note{
+        width: 100%;   
+    }
