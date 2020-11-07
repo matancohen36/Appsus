@@ -1,0 +1,31 @@
+.books-container{ 
+    margin:0 auto;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 35px;
+    justify-items: center;
+    align-items: center;
+    margin-block-start: 50px;
+    margin-block-end: 50px;
+}
+.books-container *>{
+cursor: pointer;
+}
+
+.book-preview {
+    text-align: center;
+    background: #e0bb8a81;
+    box-shadow: 0 0 4px black;
+    padding: 10px;
+    border-radius: 5px;
+    width:250px;
+    height:380px;
+    max-height:380px
+    
+}
+
+.book-preview img{
+    height:250px
+}
+.book-preview > h3{
+    margin: 8px auto ;
+}

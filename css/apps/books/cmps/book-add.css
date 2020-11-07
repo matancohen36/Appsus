@@ -1,6 +1,34 @@
 
 .book-list-new {
+    display: grid;
     margin: 20px 0;
-    justify-content: center;
+    justify-items: center;
+    align-items: center;
     overflow-x: auto;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    margin-block-start: 50px;
+    margin-block-end: 50px;
+
+}
+
+
+    
+.add-book-preview {
+    text-align: center;
+    background: #e0bb8a81;
+    box-shadow: 0 0 4px black;
+    padding: 5px;
+    border-radius: 3px;
+    width:134px;
+    height:200px;
+    max-height:200px
+    
+}
+
+.add-book-preview img{
+    height:100px
+}
+
+.add-book-preview h1{
+    margin: 0;
 }

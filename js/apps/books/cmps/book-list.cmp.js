@@ -3,7 +3,7 @@ import bookPreview from './book-preview.cmp.js';
 export default {
     props: ['books'],
     template: `
-        <section class="books-container flex wrap">
+        <section class="books-container grid">
             <book-preview v-for="currBook in books" :key="currBook.id" :book="currBook" />
         </section>
     `,
