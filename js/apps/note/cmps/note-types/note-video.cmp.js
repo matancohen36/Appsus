@@ -5,7 +5,7 @@ export default {
     props: ['note'],
     template: `
         <section >
-                    <h1>{{note.info.title}}</h1>
+            <input type="text" @keyup.enter="emitSaveNote" class="note-title" v-model="note.info.title" @change="emitSaveNote" />
             <iframe :src="videoUrl"></iframe>
         </section>
     `
@@ -15,7 +15,9 @@ export default {
         };
     },
     methods: {
-      
+        emitSaveNote() {
+            eventBus.$emit('saveNote', this.note)
+        }
     },
     computed: {
         videoUrl() {
