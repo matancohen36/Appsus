@@ -1,1 +1,5 @@
 
+.notes-list {
+    column-count: 4;
+    height: 80vh;
+}
