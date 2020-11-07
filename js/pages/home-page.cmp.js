@@ -1,4 +1,4 @@
-import appFooter from '../cmps/app-footer.cmp.js'
+import appFooter from '../cmps/app-footer.cmp.js';
 
 export default {
     name: 'homePage',
@@ -9,7 +9,13 @@ export default {
         <app-footer />
     </section>
     `,
+    data() {
+        return {
+        }
+    },
     methods: {
+    },
+    computed: {
     },
     mounted() {
     },
@@ -18,4 +24,4 @@ export default {
     components: {
         appFooter
     }
-}
+};

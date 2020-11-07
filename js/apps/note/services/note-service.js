@@ -110,7 +110,7 @@ function getDefaultNotes(){
                 backgroundColor: '#e0bb8a81',
             },
             info: {
-                src: 'js/apps/note/assets/mp3/song.mp3',
+                storageKey: 'js/apps/note/assets/mp3/song.mp3',
                 title: 'We will Rock You'
             }
         }
@@ -180,7 +180,7 @@ function buildNote(newNote, noteInfo) {
             newNote.info.title = '';
             break;
         case 'note-audio':
-            newNote.info.src = noteInfo;
+            newNote.info.storageKey = noteInfo;
             newNote.info.title = '';
             break;
         case 'note-todos':

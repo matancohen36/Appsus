@@ -1,4 +1,5 @@
 import { noteService } from '../services/note-service.js'
+import { utilService } from '../../../services/util-service.js'
 import { eventBus } from '../../../services/event-bus-service.js'
 
 export default {
@@ -6,7 +7,8 @@ export default {
     template: `
         <section class="note-add-bar flex align-center space-evenly">
             <input type="text" class="note-add-input" autocomplete="off" ref="elNewNote" v-model="newNoteInput" 
-                @keyup.enter="addNote" :placeholder="placeholder" />
+                @keyup.enter="addNote" :placeholder="placeholder" :disabled="newNote.type === 'note-audio'" />
+                <input v-show="newNote.type === 'note-audio'" type="file" ref="f" @change="createAudio">
             <div class="note-add-icons flex align-center" v-for="{type, icon} in noteTypes">
                 <i class="note-add-icon" :class="[icon, isSelected(type)]" @click="setNewNoteType(type)"></i> 
             </div>
@@ -22,7 +24,7 @@ export default {
                 { type: 'note-video', icon: 'fab fa-lg fa-youtube', placeholder: 'Enter video URL...' },
                 { type: 'note-audio', icon: 'fas fa-lg fa-volume-up', placeholder: 'Enter audio URL...' },
                 { type: 'note-todos', icon: 'fas fa-lg fa-list', placeholder: 'Enter name for to-do list...' },
-            ]
+            ],
         };
     },
     computed: {
@@ -43,11 +45,27 @@ export default {
 			this.newNote = noteService.getEmptyNote();
 			this.newNoteInput = '';
         },
+        createAudio() {
+            if (this.$refs.f.files[0].type.indexOf('audio/') !== 0) {
+                console.log('not an audio file');
+                return;
+            }
+            const reader = new FileReader();
+            reader.addEventListener('load', function () {
+                const audSrc = this.result;
+                this.newNoteInput = utilService.makeId(3);
+                localStorage.setItem(this.newNoteInput, audSrc);
+                eventBus.$emit('audioAdd', this.newNoteInput);
+            });
+            reader.readAsDataURL(this.$refs.f.files[0]);
+        }
     },
     components: {
     },
     created() {
-        
+        eventBus.$on('audioAdd', storageKey => {
+            this.newNoteInput = storageKey;
+            this.addNote()})
     },
 };
 
