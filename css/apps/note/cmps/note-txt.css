@@ -1,5 +1,7 @@
 
-.note-txt-container {
+.note-txt-container pre {
+    font-family: inherit;
+    margin: 0
 }
 
 .note-txt{
@@ -9,8 +11,4 @@
     text-overflow: ellipsis;
     white-space: nowrap; 
     overflow: hidden;
-}
-
-#text {
-    max-width: 200px;
 }
