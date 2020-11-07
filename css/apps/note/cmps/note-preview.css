@@ -1,5 +1,5 @@
 
-.note {
+/* .note {
     border-radius: 10px;
     margin: 10px;
     width: 300px;
@@ -7,6 +7,18 @@
     align-items: center;
     padding: 10px;
     vertical-align: baseline;
+} */
+
+.note {
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 300px;
+    height: fit-content;
+    align-items: center;
+    padding: 10px;
+    vertical-align: baseline;
+    display: inline-flex;
+    flex-direction: column;
 }
 
 .note video {
