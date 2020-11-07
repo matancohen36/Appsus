@@ -51,6 +51,10 @@ export default {
             mailService.getMailById(id)
                 .then(mail => {
                     this.mailToEdit = mail;
+                    this.mailToEdit.subject = 'Re: ' + this.mailToEdit.subject;
+                    this.mailToEdit.to = this.mailToEdit.from;
+                    this.mailToEdit.body = '';
+                    if (this.mailToEdit.status.starMarked) this.mailToEdit.status.starMarked = false;
                 });
 
     },
