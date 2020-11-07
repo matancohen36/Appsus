@@ -35,6 +35,11 @@ export default {
         },
         setFilterBy(folder) {
             this.filterBy.byFolder = folder;
+        },
+        updateMailList() {
+            mailService.getMailList()
+                .then(mails => this.mails = mails);
+            this.$router.push('/mail').catch(() => { });
         }
     },
     computed: {
@@ -62,26 +67,21 @@ export default {
             .then(mails => this.mails = mails);
         this.$router.push('/mail').catch(() => { });
 
-        eventBus.$on('addMail', () => {
-            mailService.getMailList()
-                .then(mails => this.mails = mails);
-            this.$router.push('/mail').catch(() => { });
+        eventBus.$on('addMail', this.updateMailList);
+
+        eventBus.$on('starred', mailId => {
+            mailService.toggleStarred(mailId)
+                .then(this.updateMailList);
         });
 
-        eventBus.$on('starred', (mailId) => {
-            mailService.toggleStarred(mailId);
-            mailService.getMailList()
-                .then(mails => {
-                    this.mails = mails;
-                });
-            this.$router.push('/mail').catch(() => { });
+        eventBus.$on('isRead', mailId => {
+            mailService.toggleIsRead(mailId)
+                .then(this.updateMailList);
         });
 
-        eventBus.$on('delete', (mailId) => {
+        eventBus.$on('delete', mailId => {
             mailService.deleteMailById(mailId)
-                .then(() => mailService.getMailList()
-                    .then(mails => this.mails = mails));
-            this.$router.push('/mail').catch(() => { });
+                .then(this.updateMailList);
         });
     },
     components: {

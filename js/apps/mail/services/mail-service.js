@@ -50,6 +50,14 @@ function toggleStarred(mailId) {
     const currMail = gMails.find(mail => mail.id === mailId);
     currMail.status.starMarked = !currMail.status.starMarked;
     _saveMailsToStorage();
+    return Promise.resolve();
+};
+
+function toggleIsRead(mailId) {
+    const currMail = gMails.find(mail => mail.id === mailId);
+    currMail.status.isRead = !currMail.status.isRead;
+    _saveMailsToStorage();
+    return Promise.resolve();
 };
 
 function getEmptyMail() {
@@ -82,6 +90,7 @@ export const mailService = {
     getMailById,
     getMailList,
     toggleStarred,
+    toggleIsRead,
     deleteMailById,
     getEmptyMail,
     getFoldersMap,
