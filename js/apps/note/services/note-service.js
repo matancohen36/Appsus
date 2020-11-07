@@ -86,6 +86,21 @@ function getDefaultNotes(){
         },
         {
             id: utilService.makeId(),
+            type: 'note-video',
+            status: {
+                pinned: false,
+                marked: false,
+            },
+            styles: {
+                backgroundColor: '#e0bb8a81',
+            },
+            info: {
+                url: 'https://www.youtube.com/embed/QzadoSr-4Cg',
+                title:'חשוב!'
+            }
+        },
+        {
+            id: utilService.makeId(),
             type: 'note-audio',
             status: {
                 pinned: false,

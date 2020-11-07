@@ -10,7 +10,7 @@ export default {
             <h1> Sent at: {{mail.sentAt}}</h1> 
             <p>{{mail.body}}</p>
             <img v-if="isDeleted" src="assets/restore-mail.png" class="restore-icon" @click="emitRestore(mail.id)" />
-            <router-link v-show="mail.folder === 'Drafts'" :to="'/mail/compose/' + mail.id" >Edit</router-link>
+            <router-link v-show="mail.folder === 'Drafts'" :to="'/mail/compose/' + mail.id" ><img src="js/apps/mail/assets/edit.jpeg"/></router-link>
             <i class="fas fa-lg fa-trash-alt" :class="trashIcon" @click="emitDelete(mail.id)"></i>
         </section>
     `,
