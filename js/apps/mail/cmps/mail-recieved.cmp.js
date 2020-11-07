@@ -5,7 +5,8 @@ export default {
     props: ['mail'],
     template: `
         <section>
-            <router-link v-show="mail.folder === 'Inbox'" :to="'/mail/compose/' + mail.id" >Reply</router-link>
+            <router-link v-show="mail.folder === 'Inbox'" :to="'/mail/compose/' + mail.id" >
+                <img class="reply-img" src="js/apps/mail/assets/reply.png" /></router-link>
             <h2> Mail Subject : {{mail.subject}} </h2> 
             <h3> From: {{mail.from}}</h3> 
             <h1> Recieved at: {{mail.sentAt}}</h1> 

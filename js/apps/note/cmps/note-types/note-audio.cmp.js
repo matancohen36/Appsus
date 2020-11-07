@@ -7,7 +7,6 @@ export default {
     <section>
         <input type="text" @keyup.enter="emitSaveNote" class="note-title" v-model="note.info.title" @change="emitSaveNote" />
         <audio controls>
-            <!-- <source :src="note.info.src" type="audio/mpeg"> -->
             <source :src="storageSrc" type="audio/mpeg">
         </audio>
         

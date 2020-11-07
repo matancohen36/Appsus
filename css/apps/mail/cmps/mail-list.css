@@ -14,3 +14,12 @@
 .mail-unread {
     font-weight: bold;
 }
+
+.reply-img {
+    margin: 10px 5px;
+    opacity: 0.6;
+}
+
+.reply-img:hover {
+    opacity: 1;
+}
