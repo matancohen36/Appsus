@@ -37,6 +37,15 @@ function deleteMailById(mailId) {
     return Promise.resolve();
 }
 
+function restoreMailById(mailId) {
+    const idx = gMails.findIndex(mail => mail.id === mailId);
+    if (idx >= 0) {
+        gMails[idx].status.isDeleted = !gMails[idx].status.isDeleted;
+        _saveMailsToStorage();
+    }
+    return Promise.resolve();
+}
+
 function getMailList() {
     gMails = utilService.loadFromStorage(STORAGE_KEY);
     if (!gMails || !gMails.length) {
@@ -92,6 +101,7 @@ export const mailService = {
     toggleStarred,
     toggleIsRead,
     deleteMailById,
+    restoreMailById,
     getEmptyMail,
     getFoldersMap,
     saveMail,
