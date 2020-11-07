@@ -79,8 +79,13 @@ export default {
                 .then(this.updateMailList);
         });
 
-        eventBus.$on('delete', mailId => {
+        eventBus.$on('deleteMail', mailId => {
             mailService.deleteMailById(mailId)
+                .then(this.updateMailList);
+        });
+
+        eventBus.$on('restoreMail', mailId => {
+            mailService.restoreMailById(mailId)
                 .then(this.updateMailList);
         });
     },

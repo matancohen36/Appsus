@@ -6,7 +6,7 @@ import mailSent from '../cmps/mail-sent.cmp.js';
 export default {
     name: 'mailDetails',
     template: `
-        <component :is="mailTypeComponent" @deleteMail="emitDeleteMail" :mail="mail"></component>
+        <component :is="mailTypeComponent" :mail="mail"></component>
     `,
     data() {
         return {
@@ -27,9 +27,6 @@ export default {
         }
     },
     methods: {
-        emitDeleteMail(mailId) {
-            eventBus.$emit('delete', mailId);
-        }
     },
     components: {
         mailSent,
