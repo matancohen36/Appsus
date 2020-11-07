@@ -29,7 +29,6 @@ export default {
         },
         removeBook(bookId) {
             bookService.remove(bookId)
-                // .then(() => eventBus.$emit('show-msg', 'Book Deleted'))
                 .then(() => console.log('Book Removed!'))
                 .catch(err => console.log('something went wrong', err))
         },

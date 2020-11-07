@@ -1,7 +1,8 @@
 import { booksJson } from './books-json-service.js';
 import { utilService } from '../../../services/util-service.js';
-
-const gBooks = booksJson();
+const STORAGE_KEY = 'booksDB';
+var gBooks;
+booksJson();
 
 export const bookService = {
     getBooks,
@@ -11,7 +12,12 @@ export const bookService = {
 }
 
 function getBooks() {
-    return Promise.resolve(gBooks);
+    gBooks = utilService.loadFromStorage(STORAGE_KEY)
+    if (!gBooks || !gBooks.length) {
+        gBooks = booksJson();
+        _saveBooksToStorage();
+    }
+    return Promise.resolve(gBooks)
 }
 
 function getById(id) {
@@ -64,7 +70,12 @@ function getRandCurrencyCode() {
 
 function addGoogleBook(book) {
     gBooks.unshift(book);
-    // saveBooksToStorage();
+    saveBooksToStorage();
     return Promise.resolve();
+}
+
+
+function _saveBooksToStorage() {
+    utilService.storeToStorage(STORAGE_KEY, gBooks)
 }
 

@@ -22,7 +22,6 @@ export default {
                 { type: 'note-video', icon: 'fab fa-lg fa-youtube', placeholder: 'Enter video URL...' },
                 { type: 'note-audio', icon: 'fas fa-lg fa-volume-up', placeholder: 'Enter audio URL...' },
                 { type: 'note-todos', icon: 'fas fa-lg fa-list', placeholder: 'Enter name for to-do list...' },
-                // { type: 'note-map', icon: '' },
             ]
         };
     },

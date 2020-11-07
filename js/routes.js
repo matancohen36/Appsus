@@ -45,17 +45,7 @@ const myRoutes = [
     // {
     // path: '/about',
     // component: aboutPage
-    // children: [
-    //     {
-    //         path: 'services',
-    //         component: aboutUsServices
-    //     },
-    //     {
-    //         path: ':team?',
-    //         component: aboutUsTeam
-    //     },
-    // ]
-    // },
+    // }
 ]
 
 export const myRouter = new VueRouter({ routes: myRoutes })

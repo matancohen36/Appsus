@@ -5,10 +5,6 @@
 }
 
 .note-txt{
-    margin: 7px;
+    max-width: 280px;
     min-height:3rem;
-    overflow-wrap: normal;
-    text-overflow: ellipsis;
-    white-space: nowrap; 
-    overflow: hidden;
 }
