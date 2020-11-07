@@ -9,9 +9,9 @@ export default {
             <h3> To: {{mail.to}}</h3> 
             <h1> Sent at: {{mail.sentAt}}</h1> 
             <p>{{mail.body}}</p>
-            <i class="fas fa-trash-alt" :class="trashIcon" @click="emitDelete(mail.id)" >
             <button v-if="mail.status.isDeleted" @click="emitRestore(mail.id)">Restore Mail</button>
             <router-link v-show="mail.folder === 'Drafts'" :to="'/mail/compose/' + mail.id" >Edit</router-link>
+            <i class="fas fa-lg fa-trash-alt" :class="trashIcon" @click="emitDelete(mail.id)"></i>
         </section>
     `,
     methods: {
@@ -25,7 +25,7 @@ export default {
     computed :{
         trashIcon(){
             return {
-                red: mail.status.isDeleted
+                red: this.mail.status.isDeleted
             }
         }
     }

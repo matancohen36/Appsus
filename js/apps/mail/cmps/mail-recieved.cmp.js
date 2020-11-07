@@ -9,8 +9,8 @@ export default {
             <h3> From: {{mail.from}}</h3> 
             <h1> Recieved at: {{mail.sentAt}}</h1> 
             <p>{{mail.body}}</p>
-            <button @click="emitDelete(mail.id)">x</button>
             <button v-if="isDeleted" @click="emitRestore(mail.id)">Restore Mail</button>
+            <i class="fas fa-lg fa-trash-alt" :class="trashIcon" @click="emitDelete(mail.id)"></i>
         </section>
     `,
     methods: {
@@ -24,6 +24,11 @@ export default {
     computed: {
         isDeleted() {
             return this.mail.status.isDeleted;
+        },
+        trashIcon(){
+            return {
+                red: this.mail.status.isDeleted
+            }
         }
     }
 };
