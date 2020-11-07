@@ -5,10 +5,10 @@ export default {
     props: ['note'],
     template: `
         <section class="note-img">
-        <button class="btn btn-remove-note" @click="emitRemoveNote(note.id)">x</button>    
-        <h1>{{note.info.title}}</h1>
-
-        <img :src="note.info.src" alt=""/>
+            <div class="note-txt" @keyup="updateTxt" ref="elContent" contenteditable>{{note.info.txt}}</div>
+        <section >
+            <img :src="note.info.src" alt=""/>
+        </section>
         </section>
     `,
     data() {
@@ -17,8 +17,9 @@ export default {
 
     },
     methods: {
-        emitRemoveNote(noteId) {
-            eventBus.$emit('removeNote', noteId);
+        updateTxt() {
+            this.note.info.txt = this.$refs.elContent.innerText;
+            eventBus.$emit('saveNote', this.note)
         }
     },
 };

@@ -13,6 +13,7 @@ export default {
     props: ['note'],
     template: `
         <section class="note" :style="note.styles">
+        <i class="fas fa-trash-alt" @click="emitRemoveNote(note.id)"></i>   
         <component :note="note" :is="noteComponent" class=" flex column"></component>
         <color-picker  @changeColor="setBgc"/>
         </section>
@@ -28,6 +29,9 @@ export default {
         setBgc(bgc) {
             this.note.styles.backgroundColor = bgc
             eventBus.$emit('saveNote', this.note);
+        },
+        emitRemoveNote(noteId) {
+            eventBus.$emit('removeNote', noteId);
         }
     },
     computed: {

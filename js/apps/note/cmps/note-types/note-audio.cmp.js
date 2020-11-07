@@ -5,7 +5,6 @@ export default {
     props: ['note'],
     template: `
     <section>
-    <button class="btn btn-remove-note" @click="emitRemoveNote(note.id)">x</button>    
         <h1>{{note.info.title}}</h1>
         <audio controls>
             <source :src="note.info.src" type="audio/mpeg">
@@ -25,9 +24,7 @@ export default {
         };
     },
     methods: {
-        emitRemoveNote(noteId) {
-            eventBus.$emit('removeNote', noteId);
-        }
+      
     },
 
 }
