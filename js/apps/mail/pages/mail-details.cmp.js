@@ -10,7 +10,7 @@ export default {
     `,
     data() {
         return {
-            mail: { folder: '', sentAt: '', from: '', body: '', subject: '' },
+            mail: { id:'', folder: '', sentAt: '', from: '', status: {}, body: '', subject: '' },
             MAIL_SENT_CMP: 'mail-sent',
             MAIL_RECIEVED_CMP: 'mail-recieved',
         }

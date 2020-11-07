@@ -38,8 +38,10 @@ export default {
         },
         updateMailList() {
             mailService.getMailList()
-                .then(mails => this.mails = mails);
-            this.$router.push('/mail').catch(() => { });
+                .then(mails => {
+                    this.mails = mails;
+                    this.$router.push('/mail').catch(() => { });
+                });
         }
     },
     computed: {
@@ -63,9 +65,7 @@ export default {
         },
     },
     created() {
-        mailService.getMailList()
-            .then(mails => this.mails = mails);
-        this.$router.push('/mail').catch(() => { });
+        this.updateMailList();
 
         eventBus.$on('addMail', this.updateMailList);
 

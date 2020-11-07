@@ -10,7 +10,7 @@ export default {
             <h1> Recieved at: {{mail.sentAt}}</h1> 
             <p>{{mail.body}}</p>
             <button @click="emitDelete(mail.id)">x</button>
-            <button v-if="mail.status.isDeleted" @click="emitRestore(mail.id)">Restore Mail</button>
+            <button v-if="isDeleted" @click="emitRestore(mail.id)">Restore Mail</button>
         </section>
     `,
     methods: {
@@ -19,6 +19,11 @@ export default {
         },
         emitRestore(mailId) {
             eventBus.$emit('restoreMail', mailId);
+        }
+    },
+    computed: {
+        isDeleted() {
+            return this.mail.status.isDeleted;
         }
     }
 };
