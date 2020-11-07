@@ -17,3 +17,11 @@
 @import './apps/note/note-main.css';
 @import './apps/books/book-main.css';
 
+
+/* Fontface */
+
+@font-face {
+    font-family: balsamiq;
+    src: url('../assets/fonts/balsamiq/balsamiq.ttf');
+}
+

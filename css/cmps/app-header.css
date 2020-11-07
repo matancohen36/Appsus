@@ -2,11 +2,14 @@
     height: 90px;
     color: white;
     background-color: #303841;
+    font-family: balsamiq;
+    font-size:1.5rem
 }
 
 .app-header nav {
     height: 100%;
 }
+
 
 
 
