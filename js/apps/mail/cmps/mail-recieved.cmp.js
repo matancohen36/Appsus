@@ -5,12 +5,12 @@ export default {
     props: ['mail'],
     template: `
         <section>
+            <router-link v-show="mail.folder === 'Inbox'" :to="'/mail/compose/' + mail.id" >Reply</router-link>
             <h2> Mail Subject : {{mail.subject}} </h2> 
             <h3> From: {{mail.from}}</h3> 
             <h1> Recieved at: {{mail.sentAt}}</h1> 
             <p>{{mail.body}}</p>
-            <!-- <button v-if="isDeleted" @click="emitRestore(mail.id)">Restore Mail</button> -->
-            <img src="assets/restore-mail.png" v-if="isDeleted" class="restore-icon" @click="emitRestore(mail.id)" />
+            <img v-if="isDeleted" src="assets/restore-mail.png" class="restore-icon" @click="emitRestore(mail.id)" />
             <i class="fas fa-lg fa-trash-alt" :class="trashIcon" @click="emitDelete(mail.id)"></i>
         </section>
     `,
