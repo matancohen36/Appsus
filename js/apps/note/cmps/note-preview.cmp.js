@@ -13,9 +13,11 @@ export default {
     props: ['note'],
     template: `
         <section class="note" :style="note.styles">
-        <i class="fas fa-trash-alt" @click="emitRemoveNote(note.id)"></i>   
-        <component :note="note" :is="noteComponent" class=" flex column"></component>
-        <color-picker  @changeColor="setBgc"/>
+            <component :note="note" :is="noteComponent" class=" flex column"></component>
+            <footer class="flex align-center">
+                <color-picker @changeColor="setBgc"/>
+                <i class="fas fa-lg fa-trash-alt" @click="emitRemoveNote(note.id)"></i>   
+            </footer>
         </section>
     `,
     data() {

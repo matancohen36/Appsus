@@ -2,4 +2,6 @@
 .notes-list {
     column-count: 4;
     height: 80vh;
+    display: block;
+    text-align: center;
 }

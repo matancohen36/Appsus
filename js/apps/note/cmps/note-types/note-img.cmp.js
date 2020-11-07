@@ -5,7 +5,7 @@ export default {
     props: ['note'],
     template: `
         <section class="note-img">
-            <div class="note-title" @keyup.enter="updateTitle" ref="elContent" contenteditable>{{note.info.txt}}</div>
+        <input type="text" @keyup.enter="emitSaveNote" class="note-title" v-model="note.info.title" @change="emitSaveNote" />
         <section >
             <img :src="note.info.src" alt=""/>
         </section>
@@ -17,8 +17,7 @@ export default {
 
     },
     methods: {
-        updateTitle() {
-            this.note.info.txt = this.$refs.elContent.innerText;
+        emitSaveNote() {
             eventBus.$emit('saveNote', this.note)
         }
     },

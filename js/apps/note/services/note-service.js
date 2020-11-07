@@ -9,7 +9,6 @@ function getDefaultNotes(){
             status: {
                 pinned: false,
                 marked: false,
-                editMode: false,
             },
             info: {
                 txt: 'Fullstack Me Baby!',
@@ -26,7 +25,6 @@ function getDefaultNotes(){
             status: {
                 pinned: false,
                 marked: false,
-                editMode: false,
             },
     
             styles: {
@@ -43,7 +41,6 @@ function getDefaultNotes(){
             status: {
                 pinned: false,
                 marked: false,
-                editMode: false,
             },
             styles: {
                 backgroundColor: '#e0bb8a81',
@@ -63,7 +60,6 @@ function getDefaultNotes(){
             status: {
                 pinned: false,
                 marked: false,
-                editMode: false,
             },
             styles: {
                 backgroundColor: '#e0bb8a81',
@@ -79,7 +75,6 @@ function getDefaultNotes(){
             status: {
                 pinned: false,
                 marked: false,
-                editMode: false,
             },
             styles: {
                 backgroundColor: '#e0bb8a81',
@@ -95,7 +90,6 @@ function getDefaultNotes(){
             status: {
                 pinned: false,
                 marked: false,
-                editMode: false,
             },
             styles: {
                 backgroundColor: '#e0bb8a81',
@@ -153,7 +147,6 @@ function getEmptyNote() {
         status: {
             pinned: false,
             marked: false,
-            editMode: false,
         },
         styles: {
             backgroundColor: '#e0bb8a81',

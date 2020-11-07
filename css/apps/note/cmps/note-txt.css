@@ -1,14 +1,16 @@
-.note-txt{
-    max-width: 280px;
-    min-height:3rem;
-    
+
+.note-txt-container {
 }
 
-
-.note-title{
-    margin-top:10px;
-    text-align: center;
-    max-width: 280px;
+.note-txt{
+    margin: 7px;
     min-height:3rem;
-    
+    overflow-wrap: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    overflow: hidden;
+}
+
+#text {
+    max-width: 200px;
 }

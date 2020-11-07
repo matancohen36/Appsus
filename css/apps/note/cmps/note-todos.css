@@ -5,6 +5,7 @@
 
 .todo-txt {
     border: none;
+    font-family: inherit;
     background-color: inherit;
     display: inline-block;
 }
