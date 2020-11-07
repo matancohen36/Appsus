@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.home-page h1 {
+    font-size: 3rem;
+}
+
 .homepage-img {
     width: 30vw;
     align-self: center;
