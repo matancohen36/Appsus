@@ -12,30 +12,33 @@ i{
 }
 
 
-@media (max-width: 1016px) {
+@media (max-width: 1024px) {
     .notes-list {
     column-count: 3;
     }
     .note{
-        width: 250px;
         margin: 8px auto;
         padding: 8px;
     }
-    iframe {
-        border: none;
-        margin-bottom: 10px;
-        width:250px
-    }
-    audio{
-        width:250px;
-    }
+   
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
     .notes-list {
         column-count: 2;
         }
-    }
+    
     .note{
         width: 100%;   
     }
+}
+
+@media (max-width: 536px) {
+    .notes-list {
+        column-count: 1;
+        }
+    .note-add-bar{
+        width: 100%;
+        margin:10px auto;
+    }
+}

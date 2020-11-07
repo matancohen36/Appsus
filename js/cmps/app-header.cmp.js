@@ -7,16 +7,16 @@ export default {
                             <router-link to="/" exact>Home</router-link>
                         </li>
                         <li>
-                            <router-link to="/book" exact>Book App</router-link>
+                            <router-link to="/book" exact>Book </router-link>
                         </li>
                         <li>
-                            <router-link to="/note" exact>Note App</router-link>
+                            <router-link to="/note" exact>Note </router-link>
                         </li>
                         <li>
-                            <router-link to="/mail" exact>Email App</router-link>
+                            <router-link to="/mail" exact>Email </router-link>
                         </li>
                         <li>
-                            <router-link to="/about" exact>About Us</router-link>
+                            <router-link to="/about" exact>About </router-link>
                         </li>
                     </nav>
                 </header>
