@@ -11,5 +11,6 @@
     background-color: rgba(222, 184, 135, 0.39);
 }
 
-.mail-preview:first-child {
+.mail-unread {
+    font-weight: bold;
 }
