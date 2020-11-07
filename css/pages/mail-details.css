@@ -1,7 +1,9 @@
 
 .mail-details{
-    /* border-top: 1px solid black; */
-    /* height: 80vh; */
-    /* background-color: rgba(224, 187, 138, 0.507); */
     padding-inline-start: 0.5rem;
+}
+
+.restore-icon {
+    vertical-align: bottom;
+    cursor: pointer;
 }
