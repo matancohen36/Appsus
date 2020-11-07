@@ -2,3 +2,9 @@
     min-height: calc(100vh - 90px);
     text-align: center;
 }
+
+.homepage-img {
+    width: 30vw;
+    align-self: center;
+    margin-top: -100px;
+}

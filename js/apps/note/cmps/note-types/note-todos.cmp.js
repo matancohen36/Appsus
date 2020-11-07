@@ -10,8 +10,7 @@ export default {
                 <div class="todo-item flex justify-center" v-for="(todo, idx) in note.info.todos" :key="todo.id" @keyup.enter="changedTodo(idx)">
                     <input type="checkbox" @click="toggleDoneTodo(todo)" :checked="todo.doneAt" /> 
                     <input type="text" class="todo-txt" ref="elTodoItems" v-model="todo.txt" @change="emitSaveNote" :class="{ 'line-through': todo.doneAt }" :disabled="todo.doneAt" />
-                    <!-- <button class="btn btn-remove-todo" @click="emitRemoveTodo(todo.id)">x</button>     -->
-                    <img class="btn btn-remove-todo" src="js/apps/mail/assets/remove-todo.jpeg" @click="emitAddTodo"/>  
+                    <img class="btn btn-remove-todo" src="js/apps/mail/assets/remove-todo.png" @click="emitAddTodo"/>  
                 </div>
             </div>
         </section>

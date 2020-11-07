@@ -4,7 +4,7 @@ export default {
     name: 'mailSideNav',
     template: `
         <section class="mail-side-nav flex column align-center">
-        <router-link class="btn-compose-mail" to="/mail/compose" ><img src="js/apps/mail/assets/compose.jpeg"/> <span class="nav-txt" >Compose</span> </router-link>
+        <router-link class="btn-compose-mail flex align-center" to="/mail/compose" ><img src="js/apps/mail/assets/compose.png"/> <span class="nav-txt" >Compose</span> </router-link>
                 <a class="folder-filter" href="#" @click="emitFilterByFolder(folder.name)" v-for="folder in folders" :key="folder.name.toLowerCase()">
                     <i class="fa" :class="folder.icon"></i> <span class="nav-txt" >{{folder.name}} </span> ({{foldersMap[folder.name] || 0}})</a>
         </section>
