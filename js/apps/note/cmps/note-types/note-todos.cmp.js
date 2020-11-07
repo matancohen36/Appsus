@@ -5,7 +5,7 @@ export default {
     props: ['note'],
     template: `
         <section class="note-todos">
-            <h1>{{note.info.title}}</h1>
+        <div class="note-title" @change="updateTitle" ref="elContent" contenteditable>{{note.info.title}}</div>
             <div class="todo-container">
                 <div class="todo-item flex justify-center" v-for="todo in note.info.todos" :key="todo.id">
                     <input type="checkbox" @click="toggleDoneTodo(todo)" :checked="todo.doneAt" /> 
@@ -34,6 +34,11 @@ export default {
         emitSaveNote() {
             eventBus.$emit('saveNote', this.note);
         },
+        updateTitle() {
+            this.note.info.title = this.$refs.elContent.innerText;
+            console.log('his.note:', this.note)
+            eventBus.$emit('saveNote', this.note)
+        }
     },
     computed: {
     }

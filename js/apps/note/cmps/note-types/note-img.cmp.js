@@ -5,7 +5,7 @@ export default {
     props: ['note'],
     template: `
         <section class="note-img">
-            <div class="note-txt" @keyup="updateTxt" ref="elContent" contenteditable>{{note.info.txt}}</div>
+            <div class="note-title" @keyup_enter="updateTitle" ref="elContent" contenteditable>{{note.info.txt}}</div>
         <section >
             <img :src="note.info.src" alt=""/>
         </section>
@@ -17,7 +17,7 @@ export default {
 
     },
     methods: {
-        updateTxt() {
+        updateTitle() {
             this.note.info.txt = this.$refs.elContent.innerText;
             eventBus.$emit('saveNote', this.note)
         }
