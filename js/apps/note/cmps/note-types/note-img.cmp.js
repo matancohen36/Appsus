@@ -5,7 +5,7 @@ export default {
     props: ['note'],
     template: `
         <section class="note-img">
-            <div class="note-title" @keyup_enter="updateTitle" ref="elContent" contenteditable>{{note.info.txt}}</div>
+            <div class="note-title" @keyup.enter="updateTitle" ref="elContent" contenteditable>{{note.info.txt}}</div>
         <section >
             <img :src="note.info.src" alt=""/>
         </section>
