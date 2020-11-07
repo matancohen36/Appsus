@@ -26,6 +26,10 @@
     flex-direction: column;
 }
 
+.row-reverse {
+    flex-direction: row-reverse;
+}
+
 .space-between {
     justify-content: space-between;
 }
@@ -44,6 +48,14 @@
 
 .justify-center {
     justify-content: center;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
 }
 
 .line-through {

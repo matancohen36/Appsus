@@ -1,5 +1,6 @@
 
 export default {
+    name: 'bookFilter',
     template: `
         <section class="book-filter">
             <h3>Filter Books:</h3>

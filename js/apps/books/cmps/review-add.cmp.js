@@ -1,5 +1,6 @@
 
 export default {
+    name: 'reviewAdd',
     template: `
         <form class="review-form" @submit.prevent="addReview">
             <label>Full Name: <input type="text" ref="fullName" v-model="fullName"></label>

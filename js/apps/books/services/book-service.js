@@ -1,8 +1,8 @@
 import { booksJson } from './books-json-service.js';
 import { utilService } from '../../../services/util-service.js';
+
 const STORAGE_KEY = 'booksDB';
-var gBooks;
-booksJson();
+var gBooks = booksJson();
 
 export const bookService = {
     getBooks,

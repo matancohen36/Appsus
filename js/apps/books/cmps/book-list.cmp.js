@@ -1,6 +1,7 @@
 import bookPreview from './book-preview.cmp.js';
 
 export default {
+    name: 'bookList',
     props: ['books'],
     template: `
         <section class="books-container grid">

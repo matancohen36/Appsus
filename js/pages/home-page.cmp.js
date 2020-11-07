@@ -5,6 +5,7 @@ export default {
     template: `
     <section class="home-page flex column space-between">
         <h1>Welcome to Appsus!</h1>
+        <img class="homepage-img" src="assets/favicon.png" />
         <app-footer />
     </section>
     `,

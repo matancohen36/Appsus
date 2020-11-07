@@ -1,5 +1,6 @@
 
 export default {
+    name: 'bookPreview',
     props: ['book'],
     template: `
         <section class="book-preview">
