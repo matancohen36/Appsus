@@ -122,9 +122,6 @@ function getNoteList() {
 
 }
 
-    
-
-
 function saveNote(note) {
     const noteIdx = gNotes.findIndex(currNote => currNote.id === note.id);
     if (noteIdx >= 0) gNotes.splice(noteIdx, 1, note)
@@ -138,7 +135,6 @@ function removeNote(noteId) {
     _saveNotesToStorage();
 
 }
-
 
 function getEmptyNote() {
     return {
@@ -181,9 +177,6 @@ function buildNote(newNote, noteInfo) {
 }
 
 
-
-
-
 // NOTE - TODO!
 function addTodo(noteId) {
     const currNote = gNotes.find(note => note.id === noteId);
@@ -192,20 +185,14 @@ function addTodo(noteId) {
 }
 
 function _getEmptyTodo() {
-    return { id: utilService.makeId(), txt: '', doneAt: null };
+    return { id: utilService.makeId(), txt: ' ', doneAt: null };
 }
 function removeTodo(ids) {
     const currNote = gNotes.find(note => note.id === ids.noteId);
     const todoIdx = currNote.info.todos.findIndex(todo => todo.id === ids.todoId);
-    console.log('todoIdx:', todoIdx);
     if (todoIdx >= 0) currNote.info.todos.splice(todoIdx, 1);
     saveNote(currNote);
 }
-
-
-
-
-
 
 export const noteService = {
     getNoteById,
@@ -215,13 +202,7 @@ export const noteService = {
     removeTodo,
     addTodo,
     getEmptyNote,
-    buildNote
-    // toggleStarred,
-    // connectGoogleApi,
-    // deleteMailById,
-    // getEmptyMail,
-    // getFoldersMap,
-    // saveMail
+    buildNote,
 };
 
 
@@ -233,11 +214,6 @@ export const noteService = {
 //         googleApi.onerror = () => reject('Google script failed to load')
 //     })
 // }
-
-
-
-
-
 
 function _saveNotesToStorage() {
     utilService.storeToStorage(STORAGE_KEY, gNotes)
