@@ -34,8 +34,6 @@ export default {
                 .then(books => {
                     if (!this.searchTerm) this.books = books;
                     this.books = books.filter(book => book.title.toLowerCase().includes(this.searchTerm.toLowerCase()))
-                    console.log('this.books:', this.books)
-
                 })
         },
         addBook(book) {

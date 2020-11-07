@@ -1,4 +1,3 @@
-// import appHeader from '../cmps/app-header.cmp.js'
 import appFooter from '../cmps/app-footer.cmp.js'
 
 export default {
@@ -16,7 +15,6 @@ export default {
     created() {
     },
     components: {
-        // appHeader,
         appFooter
     }
 }

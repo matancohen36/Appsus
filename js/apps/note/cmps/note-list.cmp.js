@@ -9,10 +9,8 @@ export default {
             </section>
     `,
     methods: {
-
     },
     created() {
-
     },
     components: {
         notePreview

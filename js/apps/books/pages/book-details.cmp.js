@@ -15,7 +15,6 @@ export default {
                 <p class="extra-detail" v-if="key === 'title'">{{readingLevel}}</p>
                 <p class="extra-detail" v-if="key === 'title'">{{bookAge}}</p>
             </div>
-            <img v-if="isOnSale" src="../assets/img/sale.png">
             <hr />
             <review-add />
         </section>
@@ -55,9 +54,7 @@ export default {
             if (price > 150) return 'red';
             else if (price < 20) return 'green';
         },
-        isOnSale() {
-            return this.book.listPrice.isOnSale;
-        },
+        
     },
     created() {
         const id = this.$route.params.bookId;

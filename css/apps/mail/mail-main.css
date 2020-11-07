@@ -8,3 +8,44 @@
 .red{
     color:red
 }
+
+@media (max-width: 768px) {
+    .mail-side-nav {
+    padding: 10px 10px;
+}
+.mail-filter {
+    padding: 1.25rem 0px 1.25rem 0;
+}
+}
+
+
+@media (max-width: 548px) {
+    .mail-page{
+        flex-direction: column;
+    }
+    .mail-side-nav {
+        min-height: unset;
+        flex-direction: row;
+        border-bottom: 1px solid black;
+        border-right:unset;
+    }
+    .email-search{
+        width:20rem;
+    }
+.mail-side-nav>*:not(:first-child) {
+    padding-inline-end: 8px;
+    padding-inline-start: 6px;
+}
+.nav-txt{
+    display: none;
+}
+i.fa {
+    margin-right: unset
+}
+}
+
+@media (max-width: 375px) {
+    .email-search{
+        width:17rem;
+    }
+}
