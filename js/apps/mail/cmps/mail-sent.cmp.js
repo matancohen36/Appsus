@@ -9,7 +9,7 @@ export default {
             <h3> To: {{mail.to}}</h3> 
             <h1> Sent at: {{mail.sentAt}}</h1> 
             <p>{{mail.body}}</p>
-            <i class="fas fa-trash-alt" @click="emitDelete(mail.id)" {{trashIcon}}>
+            <i class="fas fa-trash-alt" @click="emitDelete(mail.id)" >
             <button v-if="mail.status.isDeleted" @click="emitRestore(mail.id)">Restore Mail</button>
             <router-link v-show="mail.folder === 'Drafts'" :to="'/mail/compose/' + mail.id" >Edit</router-link>
         </section>
