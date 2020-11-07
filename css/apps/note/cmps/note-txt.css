@@ -1,14 +1,10 @@
+
+.note-txt-container pre {
+    font-family: inherit;
+    margin: 0
+}
+
 .note-txt{
     max-width: 280px;
     min-height:3rem;
-    
-}
-
-
-.note-title{
-    margin-top:10px;
-    text-align: center;
-    max-width: 280px;
-    min-height:3rem;
-    
 }

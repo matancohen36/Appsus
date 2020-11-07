@@ -6,6 +6,7 @@ import mailDetails from './apps/mail/pages/mail-details.cmp.js';
 import mailCompose from './apps/mail/pages/mail-compose.cmp.js';
 import mailList from './apps/mail/cmps/mail-list.cmp.js';
 import homePage from './pages/home-page.cmp.js';
+import aboutPage from './pages/about-page.cmp.js';
 
 const myRoutes = [
     {
@@ -39,15 +40,15 @@ const myRoutes = [
             path: '/mail/:mailid',
             component: mailDetails
         },
-            
-        ]
-    }
-    // {
-    // path: '/about',
-    // component: aboutPage
-    // }
-]
 
-export const myRouter = new VueRouter({ routes: myRoutes })
+        ]
+    },
+    {
+        path: '/about',
+        component: aboutPage
+    }
+];
+
+export const myRouter = new VueRouter({ routes: myRoutes });
 
 

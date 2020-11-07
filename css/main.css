@@ -6,6 +6,7 @@
 
 /* PAGES */
 @import './pages/home-page.css';
+@import './pages/about-page.css';
 
 /* CMPS */
 @import './cmps/app-header.css';
