@@ -36,8 +36,8 @@ export default {
     },
     computed: {
         bookDetails() {
-            const { title, subtitle, authors, publishedDate, description, categories, thumbnail, language } = this.book;
-            return { title, subtitle, authors, publishedDate, description, categories, thumbnail, language };
+            const { title, subtitle, authors, publishedDate, description, categories, language } = this.book;
+            return { title, subtitle, authors, publishedDate, description, categories, language };
         },
         readingLevel() {
             const pageCount = this.book.pageCount;
