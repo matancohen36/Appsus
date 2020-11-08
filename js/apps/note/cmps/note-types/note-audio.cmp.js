@@ -1,22 +1,22 @@
 import { eventBus } from '../../../../services/event-bus-service.js';
+import { noteService } from '../../services/note-service.js';
 
 export default {
     name: 'noteAudio',
     props: ['note'],
     template: `
-    <section>
-        <input type="text" @keyup.enter="emitSaveNote" class="note-title" v-model="note.info.title" 
-            @change="emitSaveNote" placeholder="<add title>" />
-        <audio controls>
-            <source :src="storageSrc" type="audio/mpeg">
-        </audio>
-        
+        <section>
+            <input type="text" @keyup.enter="emitSaveNote" class="note-title" v-model="note.info.title" 
+                @change="emitSaveNote" placeholder="<add title>" />
+            <audio controls>
+                <source :src="storageSrc" type="audio/mpeg">
+            </audio>
         </section>
     `
     ,
     data() {
         return {
-            storageSrc: localStorage.getItem(this.note.info.storageKey) || this.note.info.storageKey
+            storageSrc: this.note.info.storageKey
         };
     },
     methods: {
@@ -24,7 +24,10 @@ export default {
             eventBus.$emit('saveNote', this.note)
         }
     },
-
+    created() {
+        const currAudio = noteService.getAudioFromStorage(this.note.info.storageKey);
+        if (currAudio) this.storageSrc = currAudio.src;
+    }
 }
 
 
