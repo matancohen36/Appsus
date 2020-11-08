@@ -4,3 +4,7 @@
     width: 250px;
     margin-inline-end: 30px;
 }
+
+.app-header a:visited {
+    color: white;
+}

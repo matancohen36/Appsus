@@ -10,7 +10,8 @@ export default {
             <h3> sending to: </h3> 
             <input type="text" placeholder="please enter mail receiver" v-model="mailToEdit.to" />
             <textarea v-model="mailToEdit.body" placeholder="please enter text for your mail"></textarea>
-            <button @click="sendMail"> Send</button>
+            <!-- <button  Send</button> -->
+            <img class="send-img"  @click="sendMail"src="js/apps/mail/assets/send.png" />
         </section>
     `,
     data() {

@@ -6,10 +6,19 @@
 
 .email-search {
     outline: unset;
-    border: unset;
+    border: rgba(222, 184, 135, 0.39) 1px solid;
     background-color: #f1f3f4;
     border-radius: 5px;
     width: 25rem;
     height: 50px;
     padding: 1.25rem;
 }
+.mail-filter select{
+    border: rgba(222, 184, 135, 0.39) 1px solid;
+    background-color: #f1f3f4;
+    border-radius: 5px;
+    border-right: none;
+}
+
+
+

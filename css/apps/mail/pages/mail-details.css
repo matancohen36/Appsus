@@ -1,0 +1,36 @@
+
+.mail-details{
+    padding-inline-start: 0.5rem;
+}
+
+.restore-icon {
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+.mail-details input {
+    outline: unset;
+    border: rgba(0, 0, 0, 0.39) 1px solid;
+    background-color: #f1f3f4;
+    border-radius: 5px;
+    height: 31px;
+    padding: 1.25rem;
+    margin-right: 6px;
+    }
+    
+    
+    .mail-details textarea {
+    outline: unset;
+    border: rgba(0, 0, 0, 0.39) 1px solid;
+    background-color: #f1f3f4;
+    border-radius: 5px;
+    margin-top:10px;
+    height: 300px;
+    padding: 1.25rem;
+    margin-right: 6px;
+    }
+
+.send-img{
+    width: 60px;
+
+}
