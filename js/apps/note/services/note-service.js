@@ -1,7 +1,9 @@
 import { utilService } from '../../../services/util-service.js';
-const STORAGE_KEY = 'noteDB';
+const STORAGE_NOTE_KEY = 'noteDB';
+const STORAGE_AUDIO_KEY = 'audioDB';
+
 var gNotes;
-function getDefaultNotes(){
+function getDefaultNotes() {
     return [
         {
             id: utilService.makeId(),
@@ -17,22 +19,6 @@ function getDefaultNotes(){
                 backgroundColor: '#e0bb8a81',
             },
         },
-                {
-                    id: utilService.makeId(),
-                    type: 'note-txt',
-                    status: {
-                        pinned: false,
-                        marked: false,
-                    },
-                    info: {
-                        txt: `שם אידיאלי לעובד בצ'יינג':תמיר`
-                    },
-                    styles: {
-                        backgroundColor: '#e0bb8a81',
-                    },
-                },
-    
-        
         {
             id: utilService.makeId(),
             type: 'note-txt',
@@ -41,7 +27,23 @@ function getDefaultNotes(){
                 marked: false,
             },
             info: {
-                txt:`אם אני מבשל בסיר פתית אחד
+                txt: `שם אידיאלי לעובד בצ'יינג':תמיר`
+            },
+            styles: {
+                backgroundColor: '#e0bb8a81',
+            },
+        },
+
+
+        {
+            id: utilService.makeId(),
+            type: 'note-txt',
+            status: {
+                pinned: false,
+                marked: false,
+            },
+            info: {
+                txt: `אם אני מבשל בסיר פתית אחד
                  וקורא לו בון אז אפשר לקרוא לו  בון הפתית?`
             },
             styles: {
@@ -55,7 +57,7 @@ function getDefaultNotes(){
                 pinned: false,
                 marked: false,
             },
-    
+
             styles: {
                 backgroundColor: '#e0bb8a81'
             },
@@ -71,7 +73,7 @@ function getDefaultNotes(){
                 pinned: false,
                 marked: false,
             },
-    
+
             styles: {
                 backgroundColor: '#e0bb8a81'
             },
@@ -116,7 +118,7 @@ function getDefaultNotes(){
                 ]
             }
         },
-    
+
         {
             id: utilService.makeId(),
             type: 'note-video',
@@ -147,21 +149,21 @@ function getDefaultNotes(){
                 title: 'Oreroroorororo'
             }
         },
-                {
-                    id: utilService.makeId(),
-                    type: 'note-video',
-                    status: {
-                        pinned: false,
-                        marked: false,
-                    },
-                    styles: {
-                        backgroundColor: '#e0bb8a81',
-                    },
-                    info: {
-                        url: 'https://www.youtube.com/embed/QzadoSr-4Cg',
-                        title:'חשוב!'
-                    }
-                },
+        {
+            id: utilService.makeId(),
+            type: 'note-video',
+            status: {
+                pinned: false,
+                marked: false,
+            },
+            styles: {
+                backgroundColor: '#e0bb8a81',
+            },
+            info: {
+                url: 'https://www.youtube.com/embed/QzadoSr-4Cg',
+                title: 'חשוב!'
+            }
+        },
         {
             id: utilService.makeId(),
             type: 'note-video',
@@ -192,9 +194,9 @@ function getDefaultNotes(){
                 title: 'We will Rock You'
             }
         }
-    
-    
-    ]
+
+
+    ];
 }
 
 function getNoteById(noteId) {
@@ -204,20 +206,33 @@ function getNoteById(noteId) {
     return Promise.resolve(note);
 }
 function getNoteList() {
-    gNotes = utilService.loadFromStorage(STORAGE_KEY)
+    gNotes = utilService.loadFromStorage(STORAGE_NOTE_KEY);
     if (!gNotes || !gNotes.length) {
         gNotes = getDefaultNotes();
         _saveNotesToStorage();
     }
-    return Promise.resolve(gNotes)
+    return Promise.resolve(gNotes);
 
 }
 
 function saveNote(note) {
     const noteIdx = gNotes.findIndex(currNote => currNote.id === note.id);
-    if (noteIdx >= 0) gNotes.splice(noteIdx, 1, note)
+    if (noteIdx >= 0) gNotes.splice(noteIdx, 1, note);
     else gNotes.unshift(note);
     _saveNotesToStorage();
+}
+
+function saveAudioToStorage(key, src) {
+    var audios = utilService.loadFromStorage(STORAGE_AUDIO_KEY);
+    if (audios) audios.push({ key, src });
+    else audios = [{ key, src }];
+    utilService.storeToStorage(STORAGE_AUDIO_KEY, audios);
+}
+
+function getAudioFromStorage(audioKey) {
+    const audios = utilService.loadFromStorage(STORAGE_AUDIO_KEY);
+    if (audios) return audios.find(audio => audio.key === audioKey);
+    return null;
 }
 
 function removeNote(noteId) {
@@ -292,9 +307,11 @@ export const noteService = {
     addTodo,
     getEmptyNote,
     buildNote,
+    saveAudioToStorage,
+    getAudioFromStorage
 };
 
 
 function _saveNotesToStorage() {
-    utilService.storeToStorage(STORAGE_KEY, gNotes)
+    utilService.storeToStorage(STORAGE_NOTE_KEY, gNotes);
 }

@@ -8,7 +8,7 @@ export default {
         <section class="note-add-bar flex align-center space-evenly">
             <input type="text" class="note-add-input" v-show="newNote.type !== 'note-audio'" autocomplete="off" ref="elNewNote" v-model="newNoteInput" 
                 @keyup.enter="addNote" :placeholder="placeholder" :disabled="newNote.type === 'note-audio'" />
-                <input class="note-add-audio" v-show="newNote.type === 'note-audio'" type="file" ref="f" @change="createAudio">
+                <input class="note-add-audio" v-if="newNote.type === 'note-audio'" type="file" ref="f" @change="createAudio">
             <div class="note-add-icons flex align-center" v-for="{type, icon} in noteTypes">
                 <i class="note-add-icon" :class="[icon, isSelected(type)]" @click="setNewNoteType(type)"></i> 
             </div>
@@ -54,7 +54,7 @@ export default {
             reader.addEventListener('load', function () {
                 const audSrc = this.result;
                 this.newNoteInput = utilService.makeId(3);
-                localStorage.setItem(this.newNoteInput, audSrc);
+                noteService.saveAudioToStorage(this.newNoteInput, audSrc);
                 eventBus.$emit('audioAdd', this.newNoteInput);
             });
             reader.readAsDataURL(this.$refs.f.files[0]);
