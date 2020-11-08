@@ -8,6 +8,12 @@
 .app-header a {
     color: white;
 }
+.app-header nav{
+    color: white;
+}
+.app-header nav a:visited{
+    color: white;
+}
 .app-header a:visited {
     color: white;
 }
