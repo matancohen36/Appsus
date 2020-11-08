@@ -6,7 +6,9 @@ export default {
     template: `
         <section>
             <div class="flex align-center row-reverse justify-end">
-                <router-link class="edit-mail-img" v-show="mail.folder === 'Drafts'" :to="'/mail/compose/' + mail.id" ><img src="js/apps/mail/assets/edit.png"/></router-link>
+                <router-link class="edit-mail-img" v-show="mail.folder === 'Drafts'" :to="'/mail/compose/' + mail.id" >
+                    <img src="js/apps/mail/assets/edit.png"/>
+                </router-link>
                 <h2> Mail Subject : {{mail.subject}} </h2> 
             </div>
             <h3> To: {{mail.to}}</h3> 

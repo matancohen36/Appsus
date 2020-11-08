@@ -6,7 +6,9 @@ import mailSent from '../cmps/mail-sent.cmp.js';
 export default {
     name: 'mailDetails',
     template: `
-        <component :is="mailTypeComponent" :mail="mail"></component>
+        <section class="mail-type-cmp" >  
+            <component :is="mailTypeComponent" :mail="mail"></component>
+        </section>
     `,
     data() {
         return {
@@ -37,7 +39,7 @@ export default {
         mailService.getMailById(id)
             .then(mail => {
                 this.mail = mail
-                this.mail.sentAt = (this.mail.sentAt) ? new Date(this.mail.sentAt).toTimeString().substr(0, 8) : '';
+                this.mail.sentAt = (this.mail.sentAt) ? new Date(this.mail.sentAt).toTimeString().substr(0, 5) : '';
             })
 
 
