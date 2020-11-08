@@ -16,9 +16,54 @@ function getDefaultNotes(){
             styles: {
                 backgroundColor: '#e0bb8a81',
             },
-        }
+        },
+                {
+                    id: utilService.makeId(),
+                    type: 'note-txt',
+                    status: {
+                        pinned: false,
+                        marked: false,
+                    },
+                    info: {
+                        txt: `שם אידיאלי לעובד בצ'יינג':תמיר`
+                    },
+                    styles: {
+                        backgroundColor: '#e0bb8a81',
+                    },
+                },
     
-        ,
+        
+        {
+            id: utilService.makeId(),
+            type: 'note-txt',
+            status: {
+                pinned: false,
+                marked: false,
+            },
+            info: {
+                txt:`אם אני מבשל בסיר פתית אחד
+                 וקורא לו בון אז אפשר לקרוא לו  בון הפתית?`
+            },
+            styles: {
+                backgroundColor: '#e0bb8a81',
+            },
+        },
+        {
+            id: utilService.makeId(),
+            type: 'note-img',
+            status: {
+                pinned: false,
+                marked: false,
+            },
+    
+            styles: {
+                backgroundColor: '#e0bb8a81'
+            },
+            info: {
+                src: 'js/apps/note/assets/img/nice.gif',
+                title: 'דקה לפני הגשה מסיים להסתכל על הפרויקט'
+            },
+        },
         {
             id: utilService.makeId(),
             type: 'note-img',
@@ -34,6 +79,24 @@ function getDefaultNotes(){
                 src: 'js/apps/note/assets/img/meme.jpg',
                 title: 'when we made the memegen'
             },
+        },
+        {
+            id: utilService.makeId(),
+            type: 'note-todos',
+            status: {
+                pinned: false,
+                marked: false,
+            },
+            styles: {
+                backgroundColor: '#e0bb8a81',
+            },
+            info: {
+                title: 'How was it:',
+                todos: [
+                    { id: utilService.makeId(), txt: 'Do that', doneAt: null },
+                    { id: utilService.makeId(), txt: 'Do this', doneAt: null }
+                ]
+            }
         },
         {
             id: utilService.makeId(),
@@ -80,10 +143,25 @@ function getDefaultNotes(){
                 backgroundColor: '#e0bb8a81',
             },
             info: {
-                url: 'https://giphy.com/embed/1wqqlaQ7IX3TXibXZE',
-                title: ' אני אחרי שירון אמר שהכל במצגת'
+                url: 'https://www.youtube.com/embed/SrxL6eQGvQM&feature=youtu.be',
+                title: 'Oreroroorororo'
             }
         },
+                {
+                    id: utilService.makeId(),
+                    type: 'note-video',
+                    status: {
+                        pinned: false,
+                        marked: false,
+                    },
+                    styles: {
+                        backgroundColor: '#e0bb8a81',
+                    },
+                    info: {
+                        url: 'https://www.youtube.com/embed/QzadoSr-4Cg',
+                        title:'חשוב!'
+                    }
+                },
         {
             id: utilService.makeId(),
             type: 'note-video',
@@ -95,8 +173,8 @@ function getDefaultNotes(){
                 backgroundColor: '#e0bb8a81',
             },
             info: {
-                url: 'https://www.youtube.com/embed/QzadoSr-4Cg',
-                title:'חשוב!'
+                url: 'https://giphy.com/embed/1wqqlaQ7IX3TXibXZE',
+                title: ' אני אחרי שירון אמר שהכל במצגת'
             }
         },
         {
