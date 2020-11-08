@@ -5,6 +5,9 @@
     margin-inline-end: 30px;
 }
 
+.app-header a {
+    color: white;
+}
 .app-header a:visited {
     color: white;
 }
