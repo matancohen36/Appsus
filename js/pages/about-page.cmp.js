@@ -22,7 +22,8 @@ export default {
                 <p>Fullstack Developer</p>
             </div>
             <div class="me-txt">
-                <p>Hey My Name Is Matan Im 22 Years old , i Am Taking a Coding Course in Coding Academy.</p>
+                <p>Hey my name is Matan, 22 Years old. I am taking a coding course in Coding Academy.
+                   I'm usually glued to my chair, playing WOW, LOL, or working out.</p>
             </div>
         </div>
     </section>

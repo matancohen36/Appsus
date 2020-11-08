@@ -1,6 +1,7 @@
 
 .todo-container {
     margin: 0 auto;
+    text-align: left;
 }
 
 .todo-txt {
@@ -14,6 +15,7 @@
     border: none;
     background-color: transparent;
     padding: 0;
+    cursor: pointer;
 }
 
 .btn-add-todo {

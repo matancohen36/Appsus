@@ -5,7 +5,8 @@ export default {
     props: ['note'],
     template: `
         <section >
-            <input type="text" @keyup.enter="emitSaveNote" class="note-title" v-model="note.info.title" @change="emitSaveNote" />
+            <input type="text" @keyup.enter="emitSaveNote" class="note-title" v-model="note.info.title" 
+            @change="emitSaveNote" placeholder="<add title>" />
             <iframe :src="videoUrl"></iframe>
         </section>
     `

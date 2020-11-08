@@ -10,7 +10,7 @@
 body {
     margin: 0;
     font-family: Arial;
-    background-color: beige;
+    background: url(../../assets/background.svg)
 }
 
 button {

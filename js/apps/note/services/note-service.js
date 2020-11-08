@@ -119,8 +119,6 @@ function getDefaultNotes(){
     ]
 }
 
-
-
 function getNoteById(noteId) {
     const wantedNote = gNotes.find(note => note.id === noteId);
     const note = JSON.parse(JSON.stringify(wantedNote));
@@ -191,8 +189,6 @@ function buildNote(newNote, noteInfo) {
     return Promise.resolve(newNote);
 }
 
-
-// NOTE - TODO!
 function addTodo(noteId) {
     const currNote = gNotes.find(note => note.id === noteId);
     currNote.info.todos.push(_getEmptyTodo());
